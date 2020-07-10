@@ -1,0 +1,8 @@
+{
+  "packages": [ "packages/*" ],
+  "version": "1.17.0",
+  "npmClient": "yarn",
+  "publishConfig": {
+    "access": "restricted"
+  }
+}
