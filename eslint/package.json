@@ -1,0 +1,40 @@
+{
+  "name": "@growflow/eslint-config",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Common Eslint configs for Growflow Org.",
+  "main": "index.js",
+  "types": "@growflow/shared/types",
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "build": "yarn parcel build index.js react.js tsx.js typescript.js --no-source-maps --target node"
+  },
+  "eslint": "@growflow/eslint-config",
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "@typescript-eslint/eslint-plugin": "^2.29.0",
+    "@typescript-eslint/parser": "^2.29.0",
+    "audit-ci": "^2.5.1",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^25.4.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-monorepo": "^0.2.1",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^3.0.0",
+    "eslint-plugin-security": "^1.4.0",
+    "jest": "^25.4.0",
+    "parcel": "^1.12.4",
+    "prettier": "^2.0.4"
+  }
+}
