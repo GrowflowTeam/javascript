@@ -6,5 +6,7 @@ module.exports = {
     require.resolve('./rules/typescript'),
     'prettier',
   ],
-  rules: {},
+  rules: {
+    'react/jsx-filename-extension': [0],
+  },
 };
