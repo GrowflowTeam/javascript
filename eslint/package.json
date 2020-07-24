@@ -2,16 +2,14 @@
   "name": "@growflow/eslint-config",
   "version": "1.2.0",
   "description": "Common Eslint configs for Growflow Org.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "types": "@growflow/shared/types",
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "build": "yarn parcel build index.js react.js tsx.js typescript.js --no-source-maps --target node"
   },
   "eslint": "@growflow/eslint-config",
-  "files": [
-    "dist"
-  ],
+  "files": [ "dist", "README.md" ],
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.10.5",
