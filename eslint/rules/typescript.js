@@ -31,6 +31,10 @@ module.exports = {
     // Typescript specific rules
     '@typescript-eslint/indent': [2, 2],
     // turned off rules
+    '@typescript-eslint/no-empty-function': [
+      'error',
+      { allow: ['arrowFunctions'] },
+    ],
     '@typescript-eslint/no-var-requires': 'off',
     'no-shadow': 'off',
     'no-param-reassign': 'off',
