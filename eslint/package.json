@@ -1,6 +1,6 @@
 {
   "name": "@growflow/eslint-config",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Common Eslint configs for Growflow Org.",
   "main": "dist/index.js",
   "types": "@growflow/shared/types",
