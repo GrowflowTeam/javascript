@@ -26,6 +26,6 @@ Just create a new folder inside the `packages` folder and start coding.
 - Command: `yarn firebaseSync`
 - Requirements: 
   - `FIREBASE_TOKEN` as environment variable. Just run `npx firebase ci:login` to get the token add it to your `.bash_profile` or export it.
-  - Be logged in gcloud SDK cli. Run: `gcloud auth login`. [Check install guide](https://cloud.google.com/sdk/docs/downloads-interactive).
+  - Make sure that you are logged in GrowFlow account in gcloud SDK cli. Run: `gcloud auth application-default login`. [Check install guide](https://cloud.google.com/sdk/docs/downloads-interactive).
 
 
