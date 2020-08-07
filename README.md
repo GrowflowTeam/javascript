@@ -68,6 +68,7 @@ Then,
 2. Inside `wholesale-frontend`, run `yalc link "@growflow/ui"`
 3. That should be it. If something isn't right, try deleting `yarn.lock`, re-run `yarn install`, and re-run `yalc link "@growflow/ui"`
 4. After making a change to `@growflow/ui`, you have to re-run `yarn run yalc` for the changes to propagate to `wholesale-frontend`
+5. When you are done developing, and **before** you push any changes that modify `yarn.lock`, make sure you run `yalc remove --all`. This prevents `yarn.lock` from incorrectly thinking there is a local copy of `@growflow/ui` instead of pulling from npm.
 
 ## Scripts
 
