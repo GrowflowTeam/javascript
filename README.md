@@ -55,7 +55,7 @@ That's it!
 
 In order for a local copy of an external frontend (e.g. wholesale-frontend) to use a local copy of a common package (e.g. @growflow/ui), we have to "link" them locally.
 
-Normally we would use `yarn link` to achieve this, but there are known issues that cause errors with React.
+Normally we would use `yarn link` to achieve this, but there are [known issues](https://github.com/facebook/react/issues/14257) that cause errors with React.
 
 The best alternative solution is to use the utility [yalc](https://github.com/whitecolor/yalc).
 
