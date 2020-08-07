@@ -9,7 +9,20 @@ yarn lerna bootstrap
 
 ## Publishing
 
-It's being done by bitbucket pipeline by running `yarn lerna publish minor` and it's being published to growflow's private npm repos
+Publishing to npm is done from within the BitBucket production pipeline.
+
+The pipeline will automatically attempt to publish a new version based on the `package.json` version of each package within this repo. (e.g. `packages/ui/package.json`)
+
+If the `package.json` version of a package did not change, a publish will not happen.
+
+In order to bump the version of a package (e.g. `@growflow/ui`), you must edit the corresponding `package.json` file (e.g. `packages/ui/package.json`) and bump the version number based on the following criteria (semantic versioning):
+
+- Any version change of antd library should always be a major version bump
+- Major changes have breaking changes that cause backwards incompatibility
+- Minor changes have new features but are otherwise backwards compatible
+- Patch changes have fixes or improvements to existing features that are backwards compatible
+
+All packages are published to growflow's private npm repos.
 
 ## Running Linter and Tests
 
