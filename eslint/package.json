@@ -5,15 +5,13 @@
   "main": "dist/index.js",
   "types": "@growflow/shared/types",
   "scripts": {
+    "publish": "yarn publish --non-interactive || exit 0",
     "clean": "rm -rf dist",
     "bootstrap": "lerna bootstrap",
     "build": "yarn parcel build index.js react.js tsx.js typescript.js rules/* --no-source-maps --target node"
   },
   "eslint": "@growflow/eslint-config",
-  "files": [
-    "dist",
-    "README.md"
-  ],
+  "files": ["dist", "README.md"],
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.10.5",
