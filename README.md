@@ -22,7 +22,14 @@ In order to bump the version of a package (e.g. `@growflow/ui`), you must edit t
 - Minor changes have new features but are otherwise backwards compatible
 - Patch changes have fixes or improvements to existing features that are backwards compatible
 
-All packages are published to growflow's private npm repos.
+### How to bump the version of a package
+
+1. Change working directory to that of a package (e.g. `cd packages/ui`)
+2. To bump a patch version, run `yarn version:patch`
+3. To bump a minor version, run `yarn version:minor`
+4. To bump a major version, run `yarn version:major`
+
+**All packages are published to growflow's private npm repos.**
 
 ## Running Linter and Tests
 
@@ -66,10 +73,10 @@ Then,
 
 1. Run `yarn run yalc` inside `growflow-common/packages/ui` (this will also build the bundle)
 1. Back inside `wholesale-frontend`, inside the root `package.json` file, under the `workspaces` property, add a new entry `.yalc/@*/*`
-1. Inside `wholesale-frontend`, run `yalc link "@growflow/ui"`
+1. Inside `wholesale-frontend`, run `yalc link "@growflow/ui"` and `yarn install`
 1. That should be it. If something isn't right, run `yarn clean` and re-run `yarn install`
 1. After making a change to `@growflow/ui`, you have to re-run `yarn run yalc` for the changes to propagate to `wholesale-frontend`
-1. When you are done developing, and **before** you push any changes that modify `yarn.lock`, make sure you run `yalc remove --all` and delete the `workspaces` entry created above inside the root `package.json` file. This prevents `yarn.lock` from incorrectly thinking there is a local copy of `@growflow/ui` instead of pulling from npm.
+1. When you are done developing, and **before** you push any changes, make sure you run `yalc remove --all`. This prevents `yarn.lock` from incorrectly thinking there is a local copy of `@growflow/ui` instead of pulling from npm.
 
 ## Scripts
 
