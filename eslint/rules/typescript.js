@@ -44,6 +44,7 @@ module.exports = {
     'class-methods-use-this': 'off',
 
     'import/extensions': 0,
+    'sort-imports': 1,
 
     // warnings
     // -> we don't want warnings
