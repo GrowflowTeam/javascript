@@ -12,7 +12,7 @@ Please note: that you'll need a `.npmrc` file with the Growflow's NPM_TOKEN
 ### Dependencies
 You'll need to add the following dev dependencies to your package.json
 ```
-yarn add @typescript-eslint/eslint-plugin @typescript-eslint/parser babel-eslint eslint eslint-config-airbnb eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-monorepo eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-security prettier -D
+yarn add @typescript-eslint/eslint-plugin @typescript-eslint/parser babel-eslint eslint eslint-config-airbnb eslint-config-prettier eslint-plugin-import eslint-plugin-simple-import-sort eslint-plugin-jsx-a11y eslint-plugin-monorepo eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-security prettier -D
 ```
 
 ### Using it

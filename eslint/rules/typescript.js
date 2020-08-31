@@ -2,7 +2,7 @@ const prettierConfig = require('../../../.prettierrc.js');
 
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['monorepo', 'prettier', '@typescript-eslint'],
+  plugins: ['monorepo', 'prettier', '@typescript-eslint', 'simple-import-sort'],
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',
@@ -42,9 +42,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'func-names': 'off',
     'class-methods-use-this': 'off',
-
     'import/extensions': 0,
-    'sort-imports': 1,
 
     // warnings
     // -> we don't want warnings
@@ -78,6 +76,7 @@ module.exports = {
     'import/imports-first': ['error', 'absolute-first'],
     'import/newline-after-import': 'error',
     'import/named': 'error',
+    'simple-import-sort/sort': 'error',
 
     // Added 1/4/2020
     'prettier/prettier': 'error',
