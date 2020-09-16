@@ -71,11 +71,10 @@ npm i yalc -g
 
 Then,
 
-1. Run `yarn run yalc` inside `growflow-common/packages/ui` (this will also build the bundle)
-1. Back inside `wholesale-frontend`, inside the root `package.json` file, under the `workspaces` property, add a new entry `.yalc/@*/*`
+1. Run `yarn dev` inside `growflow-common/packages/ui` (this will also build and watch the bundle)
+1. Back inside `wholesale-frontend`, inside the root `package.json` file, under the `workspaces` property, add a new entry `.yalc/@*/*` (this only needs to be done one time)
 1. Inside `wholesale-frontend`, run `yalc link "@growflow/ui"` and `yarn install`
 1. That should be it. If something isn't right, run `yarn clean` and re-run `yarn install`
-1. After making a change to `@growflow/ui`, you have to re-run `yarn run yalc` for the changes to propagate to `wholesale-frontend`
 1. When you are done developing, and **before** you push any changes, make sure you run `yalc remove --all`. This prevents `yarn.lock` from incorrectly thinking there is a local copy of `@growflow/ui` instead of pulling from npm.
 
 ## Scripts
