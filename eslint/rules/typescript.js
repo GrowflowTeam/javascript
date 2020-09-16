@@ -1,8 +1,6 @@
-const prettierConfig = require('../../../.prettierrc.js');
-
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['monorepo', 'prettier', '@typescript-eslint', 'simple-import-sort'],
+  plugins: ['monorepo', '@typescript-eslint', 'simple-import-sort'],
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',
@@ -14,7 +12,6 @@ module.exports = {
     es6: true,
     node: true,
     mocha: true,
-    // jest: true,
     browser: true,
   },
   settings: {
@@ -79,7 +76,6 @@ module.exports = {
     'simple-import-sort/sort': 'error',
 
     // Added 1/4/2020
-    'prettier/prettier': 'error',
     'no-unused-vars': 'warn',
     'no-console': 'off',
 
@@ -95,7 +91,6 @@ module.exports = {
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'prettier/@typescript-eslint',
       ],
       rules: {
         'security/detect-object-injection': 'off',
@@ -111,7 +106,6 @@ module.exports = {
         '@typescript-eslint/no-floating-promises': 'error',
         '@typescript-eslint/no-use-before-define': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
-        'prettier/prettier': ['error', prettierConfig],
       },
     },
   ],

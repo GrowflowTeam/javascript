@@ -1,23 +1,20 @@
 # @growflow/eslint-config
 
-## Getting started
-### Install
-Install as dev dependency
+GrowFlow's shared [ESLint](https://eslint.org/) configuration to apply styling and syntax rules across GrowFlow projects.
+
+## Usage
+
+Install as dev dependency:
+
 ```
-yarn add @growflow/eslint-config -D
+yarn add @growflow/eslint-config eslint prettier -D
 ```
 
-Please note: that you'll need a `.npmrc` file with the Growflow's NPM_TOKEN
+> Note: that you'll need a `.npmrc` file with Growflow's `NPM_TOKEN`.
 
-### Dependencies
-You'll need to add the following dev dependencies to your package.json
-```
-yarn add @typescript-eslint/eslint-plugin @typescript-eslint/parser babel-eslint eslint eslint-config-airbnb eslint-config-prettier eslint-plugin-import eslint-plugin-simple-import-sort eslint-plugin-jsx-a11y eslint-plugin-monorepo eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-security prettier -D
-```
+You'll need to create a `.eslintrc.json` or `.eslintrc` file with content similar to the following:
 
-### Using it
-You'll need to create a `.eslintrc.json` or `.eslintrc` file with the following content:
-```
+```json
 {
   "extends": ["@growflow/eslint-config"],
   "parserOptions": {
@@ -39,3 +36,9 @@ You'll need to create a `.eslintrc.json` or `.eslintrc` file with the following 
   ]
 }
 ```
+
+### Usage with Prettier
+
+This eslint configuration includes the [Prettier plugin](https://github.com/prettier/eslint-config-prettier) to apply consistent styling. It will read a `.prettierrc` file in your repo for the rules.
+
+Make sure to [use `@growflow/prettier-config`](https://www.npmjs.com/package/@growflow/prettier-config) for GrowFlow's shared Prettier config.

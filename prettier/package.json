@@ -1,0 +1,16 @@
+{
+  "name": "@growflow/prettier-config",
+  "version": "1.0.0",
+  "description": "Common prettier config for Growflow Org.",
+  "main": "index.json",
+  "scripts": {
+    "publish": "yarn publish --non-interactive || exit 0",
+    "bootstrap": "lerna bootstrap",
+    "build": "echo \"just relax, no build step here\""
+  },
+  "files": [ "README.md" ],
+  "license": "MIT",
+  "peerDependencies": {
+    "prettier": "2.x"
+  }
+}
