@@ -1,6 +1,7 @@
 module.exports = {
   extends: [
     'airbnb',
+    'airbnb/hooks',
     '@growflow/eslint-config/rules/typescript',
     'plugin:prettier/recommended',
     'prettier/react',
