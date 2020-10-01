@@ -71,6 +71,9 @@ module.exports = {
     'unicorn/prevent-abbreviations': 'off',
     'unicorn/prefer-query-selector': 'off',
     'unicorn/no-fn-reference-in-iterator': 'off',
+
+    // https://github.com/typescript-eslint/typescript-eslint/blob/v4.3.0/packages/eslint-plugin/docs/rules/no-floating-promises.md#ignorevoid
+    'no-void': ['error', { allowAsStatement: true }],
   },
   ignorePatterns: ['node_modules/', 'dist', 'package.json', '__generated__'],
   overrides: [
