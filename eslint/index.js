@@ -74,12 +74,18 @@ module.exports = {
 
     // https://github.com/typescript-eslint/typescript-eslint/blob/v4.3.0/packages/eslint-plugin/docs/rules/no-floating-promises.md#ignorevoid
     'no-void': ['error', { allowAsStatement: true }],
+
+    // when using typescript, this isn't an issue
+    'react/jsx-props-no-spreading': 'off',
   },
   ignorePatterns: ['node_modules/', 'dist', 'package.json', '__generated__'],
   overrides: [
     {
       files: ['*.js', '*.jsx'],
       rules: {
+        // without typescript, this can be bad -- don't do it
+        'react/jsx-props-no-spreading': 'error',
+
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/no-unsafe-member-access': 'off',
         '@typescript-eslint/no-unsafe-assignment': 'off',
