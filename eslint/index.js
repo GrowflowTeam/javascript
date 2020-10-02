@@ -48,11 +48,9 @@ module.exports = {
       { functions: false, classes: true, variables: true },
     ],
 
-    // Makes no sense to allow type inference for expression parameters, but require typing the response
-    '@typescript-eslint/explicit-function-return-type': [
-      'warn',
-      { allowExpressions: true, allowTypedFunctionExpressions: true },
-    ],
+    // implicit types are fine for local funcs
+    // we rely on explicit-module-boundary-types rule for return types on module boundaries which is more important IMO
+    '@typescript-eslint/explicit-function-return-type': 'off',
 
     '@typescript-eslint/no-use-before-define': [
       'error',
