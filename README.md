@@ -44,6 +44,7 @@ yarn test
 1. First create a new folder inside the `packages` folder
 2. Inside the root `package.json` file, add the new folder to the `workspaces` property
 3. Inside the `bitbucket-pipelines.yml` file, add a new entry for the new package under `artifacts`
+4. Inside the new package `package.json` file, change the main to `dist/index.js`
 
 ## How to use packages in external frontends
 
