@@ -52,6 +52,12 @@ module.exports = {
     // we rely on explicit-module-boundary-types rule for return types on module boundaries which is more important IMO
     '@typescript-eslint/explicit-function-return-type': 'off',
 
+    // these are prohibitively strict when migrating a codebase to TS
+    // make them warnings instead
+    '@typescript-eslint/no-unsafe-assignment': 'warn',
+    '@typescript-eslint/no-unsafe-member-access': 'warn',
+    '@typescript-eslint/no-unsafe-call': 'warn',
+
     '@typescript-eslint/no-use-before-define': [
       'error',
       { functions: false, classes: true, variables: true, typedefs: true },
@@ -69,12 +75,15 @@ module.exports = {
     'unicorn/prevent-abbreviations': 'off',
     'unicorn/prefer-query-selector': 'off',
     'unicorn/no-fn-reference-in-iterator': 'off',
+    'unicorn/catch-error-name': 'off',
 
     // https://github.com/typescript-eslint/typescript-eslint/blob/v4.3.0/packages/eslint-plugin/docs/rules/no-floating-promises.md#ignorevoid
     'no-void': ['error', { allowAsStatement: true }],
 
     // when using typescript, this isn't an issue
     'react/jsx-props-no-spreading': 'off',
+
+    'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
   },
   ignorePatterns: ['node_modules/', 'dist', 'package.json', '__generated__'],
   overrides: [
