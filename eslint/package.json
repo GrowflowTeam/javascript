@@ -3,7 +3,6 @@
   "version": "5.0.0",
   "description": "Common ESLint configs for Growflow Org.",
   "main": "index.js",
-  "types": "@growflow/shared/types",
   "scripts": {
     "publish": "yarn publish --non-interactive || exit 0",
     "bootstrap": "lerna bootstrap",
