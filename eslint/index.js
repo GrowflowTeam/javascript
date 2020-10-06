@@ -43,11 +43,6 @@ module.exports = {
     // I'm not sure what issue this one is trying to prevent. it's fine; use those unescaped entities
     'react/no-unescaped-entities': 'off',
 
-    'no-use-before-define': [
-      'error',
-      { functions: false, classes: true, variables: true },
-    ],
-
     // implicit types are fine for local funcs
     // we rely on explicit-module-boundary-types rule for return types on module boundaries which is more important IMO
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -57,7 +52,18 @@ module.exports = {
     '@typescript-eslint/no-unsafe-assignment': 'warn',
     '@typescript-eslint/no-unsafe-member-access': 'warn',
     '@typescript-eslint/no-unsafe-call': 'warn',
+    '@typescript-eslint/no-unsafe-return': 'warn',
 
+    // this is redundant when using typescript types
+    'consistent-return': 'off',
+
+    // airbnb doesn't like using stuff that we can use since we target modern browsers/node
+    'no-restricted-syntax': 'off',
+
+    // it's probably fine
+    'no-await-in-loop': 'warn',
+
+    'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': [
       'error',
       { functions: false, classes: true, variables: true, typedefs: true },
@@ -76,6 +82,11 @@ module.exports = {
     'unicorn/prefer-query-selector': 'off',
     'unicorn/no-fn-reference-in-iterator': 'off',
     'unicorn/catch-error-name': 'off',
+    'unicorn/no-reduce': 'off',
+    'unicorn/no-object-as-default-parameter': 'off',
+
+    // we use async/await instead of promise chains and don't want to be forced to return in a then()
+    'promise/always-return': 'off',
 
     // https://github.com/typescript-eslint/typescript-eslint/blob/v4.3.0/packages/eslint-plugin/docs/rules/no-floating-promises.md#ignorevoid
     'no-void': ['error', { allowAsStatement: true }],
