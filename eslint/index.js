@@ -39,9 +39,7 @@ module.exports = {
 
     // who doesn't love a good nested ternary?
     'no-nested-ternary': 'off',
-
-    // it's not 2018 anymore, let's put our JSX where we want it
-    'react/jsx-filename-extension': 'off',
+    'unicorn/no-nested-ternary': 'off',
 
     // I'm not sure what issue this one is trying to prevent. it's fine; use those unescaped entities
     'react/no-unescaped-entities': 'off',
@@ -79,6 +77,7 @@ module.exports = {
 
     // it's fine, just relax
     'no-param-reassign': 'off',
+    'no-plusplus': 'off',
 
     // just relax, unicorn
     'unicorn/prevent-abbreviations': 'off',
@@ -111,6 +110,13 @@ module.exports = {
   },
   ignorePatterns: ['node_modules/', 'dist', 'package.json', '__generated__'],
   overrides: [
+    {
+      files: ['*.jsx', '*.tsx'],
+      rules: {
+        // allow returning null from React components
+        'unicorn/no-null': 'off',
+      },
+    },
     {
       files: ['*.js', '*.jsx'],
       rules: {
