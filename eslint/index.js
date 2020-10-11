@@ -6,6 +6,7 @@ module.exports = {
     'unicorn',
     'simple-import-sort',
     'monorepo',
+    'jest',
   ],
   extends: [
     'airbnb-typescript',
@@ -16,6 +17,8 @@ module.exports = {
     'plugin:promise/recommended',
     'plugin:unicorn/recommended',
     'plugin:monorepo/recommended',
+    'plugin:jest/recommended',
+    'plugin:jest/style',
     'plugin:prettier/recommended',
     'prettier/react',
     'prettier/@typescript-eslint',
@@ -95,6 +98,16 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
 
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
+
+    // jest testing
+    'jest/consistent-test-it': 'error',
+    'jest/lowercase-name': 'error',
+    'jest/no-test-return-statement': 'error',
+    'jest/prefer-hooks-on-top': 'error',
+
+    'jest/no-if': 'warn',
+    'jest/prefer-spy-on': 'warn',
+    'jest/prefer-todo': 'warn',
   },
   ignorePatterns: ['node_modules/', 'dist', 'package.json', '__generated__'],
   overrides: [
