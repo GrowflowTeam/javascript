@@ -1,3 +1,5 @@
+const { devDepFiles, testFiles } = require('./files');
+
 module.exports = {
   plugins: [
     '@typescript-eslint',
@@ -6,7 +8,6 @@ module.exports = {
     'unicorn',
     'simple-import-sort',
     'monorepo',
-    'jest',
   ],
   extends: [
     'airbnb-typescript',
@@ -17,8 +18,6 @@ module.exports = {
     'plugin:promise/recommended',
     'plugin:unicorn/recommended',
     'plugin:monorepo/recommended',
-    'plugin:jest/recommended',
-    'plugin:jest/style',
     'plugin:prettier/recommended',
     'prettier/react',
     'prettier/@typescript-eslint',
@@ -44,16 +43,18 @@ module.exports = {
     // I'm not sure what issue this one is trying to prevent. it's fine; use those unescaped entities
     'react/no-unescaped-entities': 'off',
 
-    // implicit types are fine for local funcs
-    // we rely on explicit-module-boundary-types rule for return types on module boundaries which is more important IMO
+    // don't allow anys to propagate
+    '@typescript-eslint/no-explicit-any': 'error',
+
+    // implicit types are fine as long as it isn't implicit any
     '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
 
     // these are prohibitively strict when migrating a codebase to TS
     // make them warnings instead
     '@typescript-eslint/no-unsafe-assignment': 'warn',
     '@typescript-eslint/no-unsafe-member-access': 'warn',
     '@typescript-eslint/no-unsafe-call': 'warn',
-    '@typescript-eslint/no-unsafe-return': 'warn',
 
     // this is redundant when using typescript types
     'consistent-return': 'off',
@@ -98,23 +99,48 @@ module.exports = {
 
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
 
-    // jest testing
-    'jest/consistent-test-it': 'error',
-    'jest/lowercase-name': 'error',
-    'jest/no-test-return-statement': 'error',
-    'jest/prefer-hooks-on-top': 'error',
-
-    'jest/no-if': 'warn',
-    'jest/prefer-spy-on': 'warn',
-    'jest/prefer-todo': 'warn',
+    'import/no-extraneous-dependencies': [
+      'error',
+      { devDependencies: devDepFiles },
+    ],
   },
-  ignorePatterns: ['node_modules/', 'dist', 'package.json', '__generated__'],
+  ignorePatterns: [
+    'node_modules/',
+    'dist',
+    'package.json',
+    '__generated__',
+    '.eslintrc.js',
+  ],
   overrides: [
     {
       files: ['*.jsx', '*.tsx'],
       rules: {
         // allow returning null from React components
         'unicorn/no-null': 'off',
+      },
+    },
+    {
+      files: testFiles,
+      plugins: ['jest'],
+      extends: ['plugin:jest/recommended', 'plugin:jest/style'],
+      rules: {
+        'jest/consistent-test-it': 'error',
+        'jest/lowercase-name': 'error',
+        'jest/no-test-return-statement': 'error',
+        'jest/prefer-hooks-on-top': 'error',
+
+        'jest/no-if': 'warn',
+        'jest/prefer-spy-on': 'warn',
+        'jest/prefer-todo': 'warn',
+
+        // allow these rules for mocking purposes
+        'global-require': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
+
+        // be more liberal with typescript warnings/errors since we are writing tests anyway...
+        '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+        '@typescript-eslint/no-unsafe-call': 'off',
       },
     },
     {
@@ -131,6 +157,7 @@ module.exports = {
         '@typescript-eslint/no-unsafe-return': 'off',
         '@typescript-eslint/restrict-template-expressions': 'off',
         '@typescript-eslint/restrict-plus-operands': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
       },
     },
   ],

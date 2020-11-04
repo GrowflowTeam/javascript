@@ -1,0 +1,15 @@
+{
+  "name": "@growflow/tsconfig",
+  "description": "Shareable TypeScript configuration used in GrowFlow projects",
+  "main": "tsconfig.json",
+  "version": "1.0.0",
+  "author": "GrowFlow",
+  "license": "MIT",
+  "keywords": ["typescript", "tsconfig", "ts", "config"],
+  "files": ["tsconfig.json", "README.md"],
+  "scripts": {
+    "publish": "yarn publish --non-interactive || exit 0",
+    "bootstrap": "lerna bootstrap",
+    "build": "echo \"just relax, no build step here\""
+  }
+}

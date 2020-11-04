@@ -28,3 +28,7 @@ module.exports = {
 This eslint configuration includes the [Prettier plugin](https://github.com/prettier/eslint-config-prettier) to apply consistent styling. It will read a `.prettierrc` file in your repo for the rules.
 
 Make sure to [use `@growflow/prettier-config`](https://www.npmjs.com/package/@growflow/prettier-config) for GrowFlow's shared Prettier config.
+
+### Usage with TypeScript
+
+Make sure to also bring in [GrowFlow's shared TypeScript config](https://www.npmjs.com/package/@growflow/tsconfig) for more project synergy and compilation strategery.
