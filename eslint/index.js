@@ -87,6 +87,7 @@ module.exports = {
     'unicorn/catch-error-name': 'off',
     'unicorn/no-reduce': 'off',
     'unicorn/no-object-as-default-parameter': 'off',
+    'unicorn/number-literal-case': 'off',
 
     // we use async/await instead of promise chains and don't want to be forced to return in a then()
     'promise/always-return': 'off',
