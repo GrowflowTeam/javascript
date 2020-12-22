@@ -10,7 +10,7 @@ Install as a dev dependency. ESLint plugins used by this config must also be ins
 npx install-peerdeps --dev -a <auth_token> @growflow/eslint-config
 ```
 
-> Note: that you'll need a `.npmrc` file with Growflow's `NPM_TOKEN` and you'll also need to pass that token to the `install-peerdeps` CLI (since it doesn't look at the `.npmrc` for some reason).
+> Note: that you'll need a `.npmrc` file with Growflow's `NPM_TOKEN` and you'll also need to pass that token to the `install-peerdeps` CLI (since it doesn't look at the `.npmrc` [for some stupid reason](https://github.com/nathanhleung/install-peerdeps/pull/85)).
 
 You can then create a `.eslintrc.js` file with content similar to the following:
 
