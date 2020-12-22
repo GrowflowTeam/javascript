@@ -1,6 +1,6 @@
 {
   "name": "@growflow/prettier-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Common prettier config for Growflow Org.",
   "main": "index.json",
   "scripts": {
@@ -11,6 +11,6 @@
   "files": [ "README.md" ],
   "license": "MIT",
   "peerDependencies": {
-    "prettier": "2.x"
+    "prettier": "^2.2.1"
   }
 }

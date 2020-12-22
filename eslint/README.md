@@ -4,15 +4,15 @@ GrowFlow's shared [ESLint](https://eslint.org/) configuration to apply styling a
 
 ## Usage
 
-Install as dev dependency:
+Install as a dev dependency. ESLint plugins used by this config must also be installed within your project. This is a [current limitation of ESLint](https://github.com/eslint/rfcs/pull/5). You can easily install this package and all of its peer dependencies with [install-peerdeps](https://www.npmjs.com/package/install-peerdeps):
 
 ```
-yarn add @growflow/eslint-config eslint prettier -D
+npx install-peerdeps --dev -a <auth_token> @growflow/eslint-config
 ```
 
-> Note: that you'll need a `.npmrc` file with Growflow's `NPM_TOKEN`.
+> Note: that you'll need a `.npmrc` file with Growflow's `NPM_TOKEN` and you'll also need to pass that token to the `install-peerdeps` CLI (since it doesn't look at the `.npmrc` for some reason).
 
-You'll need to create a `.eslintrc.js` file with content similar to the following:
+You can then create a `.eslintrc.js` file with content similar to the following:
 
 ```js
 module.exports = {
