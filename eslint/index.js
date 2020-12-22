@@ -28,7 +28,7 @@ module.exports = {
   },
   rules: {
     // sort imports
-    'simple-import-sort/sort': 'error',
+    'simple-import-sort/imports': 'error',
     'sort-imports': 'off',
     'import/order': 'off',
 
@@ -88,6 +88,7 @@ module.exports = {
     'unicorn/no-reduce': 'off',
     'unicorn/no-object-as-default-parameter': 'off',
     'unicorn/number-literal-case': 'off',
+    'unicorn/empty-brace-spaces': 'off',
 
     // we use async/await instead of promise chains and don't want to be forced to return in a then()
     'promise/always-return': 'off',
