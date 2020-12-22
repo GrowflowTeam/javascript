@@ -99,6 +99,10 @@ module.exports = {
     // when using typescript, this isn't an issue
     'react/jsx-props-no-spreading': 'off',
 
+    // don't mess up 'dem arrays
+    'react/jsx-key': 'error',
+    'react/no-array-index-key': 'error',
+
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
 
     'import/no-extraneous-dependencies': [
