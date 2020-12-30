@@ -25,4 +25,11 @@ exports.testFiles = [
   '**/*.spec.tsx',
 ];
 
-exports.devDepFiles = [...exports.testFiles, '**/craco.config.js'];
+exports.devDepFiles = [
+  ...exports.testFiles,
+  '**/craco.config.js',
+  '**/__mocks__/*.ts',
+  '**/__mocks__/*.tsx',
+  '**/__mocks__/*.js',
+  '**/__mocks__/*.jsx',
+];

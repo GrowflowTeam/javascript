@@ -1,6 +1,6 @@
 {
   "name": "@growflow/eslint-config",
-  "version": "5.3.1",
+  "version": "5.3.2",
   "description": "Common ESLint configs for Growflow Org.",
   "main": "index.js",
   "scripts": {
