@@ -1,0 +1,39 @@
+{
+  "name": "@growflow/jest",
+  "description": "Shareable Jest configuration used in GrowFlow projects",
+  "main": "lib/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "5.4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GrowflowTeam/javascript.git"
+  },
+  "author": "GrowFlow",
+  "license": "MIT",
+  "keywords": [
+    "jest",
+    "config",
+    "growflow"
+  ],
+  "scripts": {
+    "build": "rimraf lib dist && tsc -p tsconfig.output.json && babel src -d lib --root-mode upward --extensions \".ts\" --source-maps",
+    "prepublishOnly": "yarn build"
+  },
+  "dependencies": {
+    "deepmerge": "^4.2.2",
+    "node-fetch": "^2.6.1",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
+    "jest-ts-auto-mock": "^1.0.12",
+    "ts-jest": "^26.4.4",
+    "ttypescript": "^1.5.12"
+  },
+  "peerDependencies": {
+    "jest": "26.x"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
+}
