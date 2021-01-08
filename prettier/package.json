@@ -1,16 +1,25 @@
 {
   "name": "@growflow/prettier-config",
-  "version": "1.0.1",
   "description": "Common prettier config for Growflow Org.",
   "main": "index.json",
-  "scripts": {
-    "publish": "yarn publish --non-interactive || exit 0",
-    "bootstrap": "lerna bootstrap",
-    "build": "echo \"just relax, no build step here\""
+  "publishConfig": {
+    "access": "public"
   },
-  "files": [ "README.md" ],
+  "version": "1.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GrowflowTeam/javascript.git"
+  },
+  "author": "GrowFlow",
   "license": "MIT",
+  "keywords": ["prettier", "prettier-config", "growflow"],
+  "scripts": {
+    "prepublishOnly": "copyfiles -f ../README.md ."
+  },
   "peerDependencies": {
     "prettier": "^2.2.1"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.0"
   }
 }

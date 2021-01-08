@@ -2,14 +2,21 @@
   "name": "@growflow/tsconfig",
   "description": "Shareable TypeScript configuration used in GrowFlow projects",
   "main": "tsconfig.json",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GrowflowTeam/javascript.git"
+  },
   "author": "GrowFlow",
   "license": "MIT",
-  "keywords": ["typescript", "tsconfig", "ts", "config"],
-  "files": ["tsconfig.json", "README.md"],
+  "keywords": ["typescript", "tsconfig", "ts", "config", "growflow"],
   "scripts": {
-    "publish": "yarn publish --non-interactive || exit 0",
-    "bootstrap": "lerna bootstrap",
-    "build": "echo \"just relax, no build step here\""
+    "prepublishOnly": "copyfiles -f ../README.md ."
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.0"
   }
 }

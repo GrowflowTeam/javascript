@@ -1,9 +1,15 @@
 {
-  "packages": [ "packages/*" ],
+  "packages": [
+    "eslint",
+    "prettier",
+    "tsconfig"
+  ],
   "version": "independent",
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "publishConfig": {
-    "access": "restricted"
+  "command": {
+    "publish": {
+      "message": "🚀 publish %s"
+    }
   }
 }

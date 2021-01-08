@@ -1,0 +1,13 @@
+{
+  "name": "@growflow/javascript",
+  "private": true,
+  "version": "0.0.0",
+  "license": "MIT",
+  "workspaces": ["eslint", "prettier", "tsconfig"],
+  "scripts": {
+    "release": "lerna publish"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}

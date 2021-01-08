@@ -1,15 +1,21 @@
 {
   "name": "@growflow/eslint-config",
-  "version": "5.3.2",
   "description": "Common ESLint configs for Growflow Org.",
   "main": "index.js",
-  "scripts": {
-    "publish": "yarn publish --non-interactive || exit 0",
-    "bootstrap": "lerna bootstrap",
-    "build": "echo \"builds? where we're going, we don't need builds\""
+  "publishConfig": {
+    "access": "public"
   },
-  "eslint": "@growflow/eslint-config",
+  "version": "5.3.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GrowflowTeam/javascript.git"
+  },
+  "author": "GrowFlow",
   "license": "MIT",
+  "keywords": ["eslint", "eslintconfig", "growflow"],
+  "scripts": {
+    "prepublishOnly": "copyfiles -f ../README.md ."
+  },
   "dependencies": {
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^12.0.0",
@@ -34,6 +40,6 @@
     "prettier": "^2.2.1"
   },
   "devDependencies": {
-    "audit-ci": "^2.5.1"
+    "copyfiles": "^2.4.0"
   }
 }
