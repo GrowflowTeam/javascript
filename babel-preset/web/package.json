@@ -1,0 +1,32 @@
+{
+  "name": "@growflow/babel-preset-web",
+  "description": "Babel preset for GrowFlow web apps.",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "5.4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GrowflowTeam/javascript.git"
+  },
+  "author": "GrowFlow",
+  "license": "MIT",
+  "keywords": [
+    "babel",
+    "babel-preset",
+    "growflow"
+  ],
+  "scripts": {
+    "prepublishOnly": "copyfiles -f ../README.md ."
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.12.10",
+    "@babel/preset-typescript": "^7.10.4"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.0"
+  }
+}
