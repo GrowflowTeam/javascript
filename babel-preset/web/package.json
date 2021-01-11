@@ -5,7 +5,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.6.0",
+  "version": "5.7.0-beta.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/GrowflowTeam/javascript.git"
@@ -24,7 +24,8 @@
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.12.10",
-    "@babel/preset-typescript": "^7.10.4"
+    "@babel/preset-typescript": "^7.10.4",
+    "babel-plugin-named-asset-import": "~0.3.7"
   },
   "devDependencies": {
     "copyfiles": "^2.4.0"

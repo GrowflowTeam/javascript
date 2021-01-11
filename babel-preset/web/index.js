@@ -6,5 +6,17 @@ module.exports = () => ({
     '@babel/typescript',
     '@babel/react',
   ],
-  plugins: ['@babel/plugin-proposal-class-properties'],
+  plugins: [
+    '@babel/plugin-proposal-class-properties',
+    [
+      'named-asset-import',
+      {
+        loaderMap: {
+          svg: {
+            ReactComponent: '@svgr/webpack?-svgo,+titleProp,+ref![path]',
+          },
+        },
+      },
+    ],
+  ],
 });
