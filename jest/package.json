@@ -24,7 +24,7 @@
     "growflow"
   ],
   "scripts": {
-    "build": "rimraf lib dist && tsc -p tsconfig.output.json && babel src -d lib --root-mode upward --extensions \".ts\" --source-maps",
+    "build": "rimraf lib dist && tsc -p tsconfig.output.json && babel src -d lib --root-mode upward --extensions \".ts,.js\" --source-maps",
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
