@@ -6,6 +6,7 @@
   "workspaces": [
     "babel-preset/node",
     "babel-preset/web",
+    "browserslist",
     "eslint",
     "jest",
     "prettier",

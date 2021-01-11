@@ -1,0 +1,20 @@
+{
+  "name": "@growflow/browserslist-config",
+  "description": "Shareable browserslist configuration for GrowFlow web apps",
+  "main": "browser-config.json",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GrowflowTeam/javascript.git"
+  },
+  "author": "GrowFlow",
+  "license": "MIT",
+  "keywords": [
+    "browserslist",
+    "config",
+    "growflow"
+  ]
+}

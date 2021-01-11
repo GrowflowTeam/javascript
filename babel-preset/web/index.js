@@ -1,13 +1,8 @@
 module.exports = () => ({
   presets: [
-    [
-      '@babel/env',
-      {
-        targets: {
-          browsers: ['defaults', 'not IE 11'],
-        },
-      },
-    ],
+    // https://babeljs.io/docs/en/babel-preset-env#browserslist-integration
+    // by not explicitly setting targets here, it will use standard browserslist config sources
+    '@babel/env',
     '@babel/typescript',
     '@babel/react',
   ],
