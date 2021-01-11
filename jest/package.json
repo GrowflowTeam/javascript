@@ -13,6 +13,7 @@
   },
   "author": "GrowFlow",
   "license": "MIT",
+  "files": [ "lib", "dist", "README.md" ],
   "keywords": [
     "jest",
     "config",
