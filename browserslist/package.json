@@ -1,7 +1,7 @@
 {
   "name": "@growflow/browserslist-config",
   "description": "Shareable browserslist configuration for GrowFlow web apps",
-  "main": "browser-config.json",
+  "main": "browser-config.js",
   "publishConfig": {
     "access": "public"
   },
