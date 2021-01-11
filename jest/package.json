@@ -6,14 +6,18 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.5.0",
+  "version": "5.5.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/GrowflowTeam/javascript.git"
   },
   "author": "GrowFlow",
   "license": "MIT",
-  "files": [ "lib", "dist", "README.md" ],
+  "files": [
+    "lib",
+    "dist",
+    "README.md"
+  ],
   "keywords": [
     "jest",
     "config",
