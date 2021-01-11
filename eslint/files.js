@@ -32,4 +32,6 @@ exports.devDepFiles = [
   '**/__mocks__/*.tsx',
   '**/__mocks__/*.js',
   '**/__mocks__/*.jsx',
+  '**/jest.config.ts',
+  '**/jest.config.js',
 ];
