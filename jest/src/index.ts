@@ -21,7 +21,7 @@ const baseConfig: Config.InitialOptions = {
     '\\.svg$': path.join(__dirname, 'empty-svg.js'),
     '\\.less$': path.join(__dirname, 'empty.js'),
   },
-  setupFiles: ['dotenv/config', path.join(__dirname, 'fetch.js')],
+  setupFiles: ['dotenv/config', '@growflow/jest/lib/fetch'],
 };
 
 const tsAutoMockConfig = deepmerge<Config.InitialOptions>(baseConfig, {
@@ -53,6 +53,6 @@ export function createJestConfig({
 export function createUiJestConfig(cfg?: OptsType): Config.InitialOptions {
   return deepmerge<Config.InitialOptions>(createJestConfig(cfg), {
     testEnvironment: 'jsdom-sixteen',
-    setupFilesAfterEnv: [path.join(__dirname, 'jsdom-env.js')],
+    setupFilesAfterEnv: ['@growflow/jest/lib/jsdom-env'],
   });
 }
