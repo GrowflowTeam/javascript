@@ -1,26 +1,14 @@
 const MIN_NODE_VERSION = '12';
 
-module.exports = (api, opts) => {
+module.exports = (api) => {
   api.assertVersion(7);
-
-  const { target } = opts;
 
   return {
     presets: [
       // https://babeljs.io/docs/en/babel-preset-env#browserslist-integration
-      // when target is not node, we want to not set any explicit targets
-      // it will then use standard browserslist config sources (e.g. package.json)
-      target === 'node'
-        ? [
-            '@babel/env',
-            {
-              targets: {
-                node: MIN_NODE_VERSION,
-              },
-            },
-          ]
-        : '@babel/env',
-
+      // we want to not set any explicit targets so that it will then
+      // use standard browserslist config sources (e.g. package.json)
+      ['@babel/env', { modules: false }],
       '@babel/typescript',
       '@babel/react',
     ],
@@ -55,5 +43,22 @@ module.exports = (api, opts) => {
         'lodash',
       ],
     ],
+    env: {
+      node: {
+        presets: [
+          [
+            '@babel/env',
+            {
+              targets: {
+                node: MIN_NODE_VERSION,
+              },
+            },
+          ],
+
+          '@babel/typescript',
+          '@babel/react',
+        ],
+      },
+    },
   };
 };
