@@ -1,5 +1,21 @@
 const MIN_NODE_VERSION = '12';
 
+const nodeConfig = {
+  presets: [
+    [
+      '@babel/env',
+      {
+        targets: {
+          node: MIN_NODE_VERSION,
+        },
+      },
+    ],
+
+    '@babel/typescript',
+    '@babel/react',
+  ],
+};
+
 module.exports = (api) => {
   api.assertVersion(7);
 
@@ -44,21 +60,8 @@ module.exports = (api) => {
       ],
     ],
     env: {
-      node: {
-        presets: [
-          [
-            '@babel/env',
-            {
-              targets: {
-                node: MIN_NODE_VERSION,
-              },
-            },
-          ],
-
-          '@babel/typescript',
-          '@babel/react',
-        ],
-      },
+      node: nodeConfig,
+      test: nodeConfig,
     },
   };
 };
