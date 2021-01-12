@@ -24,13 +24,14 @@
     "growflow"
   ],
   "scripts": {
-    "build": "rimraf lib dist && tsc -p tsconfig.output.json && babel src -d lib --root-mode upward --extensions \".ts,.js\" --source-maps",
+    "build": "rimraf lib dist && tsc -p tsconfig.output.json && cross-env BABEL_ENV=node babel src -d lib --root-mode upward --extensions \".ts,.js\" --source-maps",
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.8",
     "@types/jest": "^26.0.20",
     "deepmerge": "^4.2.2",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "jest-ts-auto-mock": "^1.0.12",
@@ -39,6 +40,7 @@
     "ttypescript": "^1.5.12"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "rimraf": "^3.0.2"
   }
 }

@@ -3,6 +3,9 @@ import deepmerge from 'deepmerge';
 import path from 'path';
 
 const baseConfig: Config.InitialOptions = {
+  transform: {
+    '^.+\\.[jt]sx?$': ['babel-jest', { rootMode: 'upward' }],
+  },
   testMatch: [
     '**/__tests__/**/*.[jt]s?(x)',
     '**/?(*.)+(spec|test).[jt]s?(x)',
@@ -18,24 +21,33 @@ const baseConfig: Config.InitialOptions = {
     'fixture\\.[jt]sx?$',
   ],
   moduleNameMapper: {
-    '\\.svg$': path.join(__dirname, 'empty-svg.js'),
-    '\\.less$': path.join(__dirname, 'empty.js'),
+    '\\.svg$': path.join(__dirname, 'mocks/svg.js'),
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': path.join(
+      __dirname,
+      'mocks/file.js'
+    ),
+    '\\.(css|less)$': 'identity-obj-proxy',
   },
   setupFiles: ['dotenv/config', '@growflow/jest/lib/fetch'],
 };
 
-const tsAutoMockConfig = deepmerge<Config.InitialOptions>(baseConfig, {
-  globals: {
-    'ts-jest': {
-      compiler: 'ttypescript',
+const { transform, ...baseConfigWithoutTransform } = baseConfig;
+
+const tsAutoMockConfig = deepmerge<Config.InitialOptions>(
+  baseConfigWithoutTransform,
+  {
+    globals: {
+      'ts-jest': {
+        compiler: 'ttypescript',
+      },
     },
-  },
-  transform: {
-    '\\.tsx?$': 'ts-jest',
-    '\\.jsx?$': 'babel-jest',
-  },
-  setupFiles: ['jest-ts-auto-mock'],
-});
+    transform: {
+      '\\.tsx?$': 'ts-jest',
+      '\\.jsx?$': ['babel-jest', { rootMode: 'upward' }],
+    },
+    setupFiles: ['jest-ts-auto-mock'],
+  }
+);
 
 type OptsType = Partial<Config.InitialOptions> & {
   includeTsAutoMock?: boolean;
