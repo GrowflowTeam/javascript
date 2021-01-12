@@ -43,6 +43,7 @@ module.exports = (api, opts) => {
           libraryDirectory: 'lib',
           style: true,
         },
+        'antd',
       ],
       [
         'import',
@@ -51,6 +52,7 @@ module.exports = (api, opts) => {
           libraryDirectory: '',
           camel2DashComponentName: false,
         },
+        'lodash',
       ],
     ],
   };
