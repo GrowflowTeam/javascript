@@ -12,7 +12,7 @@ You can then create a `babel.config.json` file in the root of your project:
 
 ```json
 {
-  "presets": ["@growflow"]
+  "presets": ["@growflow/babel-preset"]
 }
 ```
 
