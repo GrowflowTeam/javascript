@@ -1,6 +1,6 @@
 {
-  "extends": "./tsconfig/tsconfig.json",
-  "include": ["babel-preset", "browserslist", "eslint", "jest", "prettier", "tsconfig"],
+  "extends": "./packages/tsconfig/tsconfig.json",
+  "include": ["packages"],
   "compilerOptions": {
     "skipLibCheck": true
   }

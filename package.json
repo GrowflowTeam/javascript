@@ -3,23 +3,16 @@
   "private": true,
   "version": "0.0.0",
   "license": "MIT",
-  "workspaces": [
-    "babel-preset",
-    "browserslist",
-    "eslint",
-    "jest",
-    "prettier",
-    "tsconfig"
-  ],
+  "workspaces": ["packages/*"],
   "scripts": {
-    "lint": "tsc && eslint --ext .js,.ts eslint jest",
+    "lint": "tsc && eslint --ext .js,.ts packages",
     "release": "lerna publish"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
-    "@growflow/babel-preset-node": "^5.4.0",
-    "@growflow/eslint-config": "^5.4.0",
+    "@growflow/babel-preset": "^5.7.1",
+    "@growflow/eslint-config": "^5.7.0",
     "@typescript-eslint/eslint-plugin": "^4.12.0",
     "eslint": "^7.17.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
@@ -36,6 +29,6 @@
     "eslint-plugin-unicorn": "^24.0.0",
     "lerna": "^3.22.1",
     "prettier": "^2.2.1",
-    "typescript": "^4.1.3"
+    "typescript": "4.0.5"
   }
 }
