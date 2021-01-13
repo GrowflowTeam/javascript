@@ -1,6 +1,6 @@
 {
   "name": "@growflow/jest",
-  "description": "Shareable Jest configuration used in GrowFlow projects",
+  "description": "Shareable Jest configuration to get testing up and running quickly for GrowFlow frontend and backend applications",
   "main": "lib/index.js",
   "types": "dist/index.d.ts",
   "publishConfig": {

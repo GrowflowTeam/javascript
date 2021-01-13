@@ -1,96 +1,60 @@
 # GrowFlow Jest Configuration
 
-> Shareable [ESLint](https://eslint.org/), [Prettier](https://prettier.io/), and [TypeScript](https://www.typescriptlang.org/) configuration to be used in Javascript/TypeScript applications to apply syntax and styling rules across GrowFlow projects.
+> Shareable [Jest](https://jestjs.io/) configuration to get testing up and running quickly for GrowFlow frontend and backend applications.
 
 ## Usage
 
-You can easily install these packages and all of their peer dependencies with [install-peerdeps](https://www.npmjs.com/package/install-peerdeps):
-
 ```
-npx install-peerdeps --dev @growflow/eslint-config
-npx install-peerdeps --dev @growflow/prettier-config
-npx install-peerdeps --dev @growflow/tsconfig
+yarn add --dev @growflow/jest
 ```
 
-You can then create a `.eslintrc.js` file with content similar to the following:
+You can then create a `jest.config.ts` file in your project root:
 
-```js
-module.exports = {
-  extends: ['@growflow'],
-  parserOptions: {
-    project: 'tsconfig.json',
-  },
-};
+```ts
+import { createJestConfig } from '@growflow/jest';
+
+export default createJestConfig();
 ```
 
-Add a `prettier` field to your `package.json` to use the shared prettier config:
+For a frontend app, you can use `createUiJestConfig`:
 
-```json
-{
-	"name": "my-cool-app",
-	"version": "1.0.0",
-	"prettier": "@growflow/prettier-config"
-}
+```ts
+import { createUiJestConfig } from '@growflow/jest';
+
+export default createUiJestConfig();
 ```
 
-Add a `tsconfig.json` to the root of your project with contents similar to the folowing:
+### Customization
 
-```json
-{
-	"extends": "@growflow/tsconfig",
-	"include": ["src", "test"]
-}
+You can override any part of the jest config by passing a partial configuration object to be deep merged with the base config:
+
+```ts
+import { createUiJestConfig } from '@growflow/jest';
+
+export default createUiJestConfig({
+  rootDir: '../',
+  testPathIgnorePatterns: ['./test/ignorme.tsx'],
+});
 ```
 
-### Editor Integration
+### TS Auto Mock
 
-You should be able to use your favorite editor's (\*cough\* [VS Code](https://code.visualstudio.com/)) [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and/or [Prettier plugin](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) to easily format your code on save or with the [_Format_ command](https://code.visualstudio.com/docs/editor/codebasics#_formatting).
+The base configuration can automatically configure [TS Auto Mock](https://typescript-tdd.github.io/ts-auto-mock/). In order for this to work, it has to switch the compilation of the tests from babel to [TTypeScript](https://github.com/cevek/ttypescript). This could cause problems for your app if the logic you are testing relies on a specific babel transformation that TypeScript doesn't support.
 
-## Developing
+For this reason, TS Auto Mock support is opt-in:
 
-Clone this repo and run `yarn` from the repository's root to install dependencies.
+```ts
+import { createJestConfig } from '@growflow/jest';
 
-### Creating a new package
-
-1. First create a new top-level folder.
-2. Copy one of the existing package's `package.json` to your new folder and tweak the values.
-3. Inside the root `package.json` file, add the new folder to the `workspaces` property.
-
-
-### Develop locally against an external app
-
-In order for a local copy of an external frontend to use a local copy of one of these packages (e.g. @growflow/eslint-config), we have to "link" them locally.
-
-Normally we would use `yarn link` to achieve this, but there are [known issues](https://github.com/facebook/react/issues/14257) that cause errors with React.
-
-The best alternative solution is to use the utility [yalc](https://github.com/whitecolor/yalc).
-
-**The below examples use `@growflow/eslint-config` and `wholesale-frontend` as an example.**
-
-First, make sure to install `yalc` globally on your machine:
-
-```
-yarn global add yalc
-or
-npm i yalc -g
+export default createJestConfig({ includeTsAutoMock: true });
 ```
 
-Then,
+## Writing Tests
 
-1. Inside the `eslint` folder, run `yalc publish`.
-1. Inside `wholesale-frontend`, inside the root `package.json` file, under the `workspaces` property, add a new entry `.yalc/@*/*` (this only needs to be done one time)
-1. Inside `wholesale-frontend`, run `yalc link "@growflow/eslint-config"` and `yarn install`
-1. That should be it. If something isn't right, run `yarn clean` and re-run `yarn install`
-1. When you are done developing, and **before** you push any changes, make sure you run `yalc remove --all`. This prevents `yarn.lock` from incorrectly thinking there is a local copy of `@growflow/eslint-config` instead of pulling from npm.
+This jest configuration will run tests given a number of different styles:
 
-## Publishing
+- Run tests in a `test` folder adjacent to the `src` folder.
+- Run tests in a `__test__` or `__tests__` folder anywhere in the workspace.
+- Run tests in a `file.spec.ts` or `file.test.js` file adjacent to the SUT.
 
-This repository uses [lerna](https://github.com/lerna/lerna) to manage its packages.
-
-**Don't manage version numbers within `package.json` by hand.** Instead, after you have made and pushed your changes, run:
-
-```
-yarn release
-```
-
-which will guide you in bumping the version and confirm what packages are about to be published. It will also auto-create tags. You can then [create a release in GitHub](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release) on the generated tag to create a changelog.
+To match GrowFlow's style, in general, integration-like tests should go into a `test` folder adjacent to `src`. Unit-style tests should go in a `__tests__` folder or a `file.test.ts` file next to the file it is testing.
