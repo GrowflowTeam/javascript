@@ -17,13 +17,7 @@
     "prettier-config",
     "growflow"
   ],
-  "scripts": {
-    "prepublishOnly": "copyfiles -f ../README.md ."
-  },
   "peerDependencies": {
     "prettier": "^2.2.1"
-  },
-  "devDependencies": {
-    "copyfiles": "^2.4.0"
   }
 }

@@ -1,50 +1,19 @@
 # GrowFlow Javascript Style Guide
 
-> Shareable [ESLint](https://eslint.org/), [Prettier](https://prettier.io/), and [TypeScript](https://www.typescriptlang.org/) configuration to be used in Javascript/TypeScript applications to apply syntax and styling rules across GrowFlow projects.
+> Shareable configuration to apply consistent syntax and styling rules across GrowFlow JavaScript/TypeScript projects.
 
 ## Usage
 
-You can easily install these packages and all of their peer dependencies with [install-peerdeps](https://www.npmjs.com/package/install-peerdeps):
+Checkout the instructions for each individual package:
 
-```
-npx install-peerdeps --dev @growflow/eslint-config
-npx install-peerdeps --dev @growflow/prettier-config
-npx install-peerdeps --dev @growflow/tsconfig
-```
+* [Babel Preset](./packages/babel-preset/README.md)
+* [Browserslist config](./packages/browserslist/README.md)
+* [ESLint config](./packages/eslint/README.md)
+* [Prettier config](./packages/prettier/README.md)
+* [TypeScript config](./packages/tsconfig/README.md)
+* [Jest config](./packages/jest/README.md)
 
-You can then create a `.eslintrc.js` file with content similar to the following:
-
-```js
-module.exports = {
-  extends: ['@growflow'],
-  parserOptions: {
-    project: 'tsconfig.json',
-  },
-};
-```
-
-Add a `prettier` field to your `package.json` to use the shared prettier config:
-
-```json
-{
-	"name": "my-cool-app",
-	"version": "1.0.0",
-	"prettier": "@growflow/prettier-config"
-}
-```
-
-Add a `tsconfig.json` to the root of your project with contents similar to the folowing:
-
-```json
-{
-	"extends": "@growflow/tsconfig",
-	"include": ["src", "test"]
-}
-```
-
-### Editor Integration
-
-You should be able to use your favorite editor's (\*cough\* [VS Code](https://code.visualstudio.com/)) [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and/or [Prettier plugin](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) to easily format your code on save or with the [_Format_ command](https://code.visualstudio.com/docs/editor/codebasics#_formatting).
+> Protip: to bootstrap a new project with all of this already configured, make use of [GrowFlow's CRA Template](https://github.com/GrowflowTeam/create-react-app).
 
 ## Developing
 
@@ -52,10 +21,8 @@ Clone this repo and run `yarn` from the repository's root to install dependencie
 
 ### Creating a new package
 
-1. First create a new top-level folder.
+1. First create a new folder within the `packages` directory.
 2. Copy one of the existing package's `package.json` to your new folder and tweak the values.
-3. Inside the root `package.json` file, add the new folder to the `workspaces` property.
-
 
 ### Develop locally against an external app
 
