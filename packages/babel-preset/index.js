@@ -30,25 +30,8 @@ module.exports = (api) => {
     ],
     plugins: [
       '@babel/plugin-proposal-class-properties',
-      [
-        'named-asset-import',
-        {
-          loaderMap: {
-            svg: {
-              ReactComponent: '@svgr/webpack?-svgo,+titleProp,+ref![path]',
-            },
-          },
-        },
-      ],
-      [
-        'import',
-        {
-          libraryName: 'antd',
-          libraryDirectory: 'lib',
-          style: true,
-        },
-        'antd',
-      ],
+      'inline-react-svg',
+      ['import', { libraryName: 'antd' }, 'antd'],
       [
         'import',
         {
