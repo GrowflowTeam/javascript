@@ -69,11 +69,9 @@ module.exports = {
     // it's probably fine
     'no-await-in-loop': 'warn',
 
+    // this is really only an issue if you are using var (instead of let/const), which we are not
     'no-use-before-define': 'off',
-    '@typescript-eslint/no-use-before-define': [
-      'error',
-      { functions: false, classes: true, variables: true, typedefs: true },
-    ],
+    '@typescript-eslint/no-use-before-define': 'off',
 
     // https://stackoverflow.com/a/63833015/316108
     'no-unused-vars': 'off',
