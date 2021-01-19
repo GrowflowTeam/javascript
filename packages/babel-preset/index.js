@@ -12,7 +12,12 @@ const nodeConfig = {
     ],
 
     '@babel/typescript',
-    '@babel/react',
+    [
+      '@babel/react',
+      {
+        runtime: 'automatic',
+      },
+    ],
   ],
 };
 
@@ -26,7 +31,12 @@ module.exports = (api) => {
       // use standard browserslist config sources (e.g. package.json)
       ['@babel/env', { modules: false }],
       '@babel/typescript',
-      '@babel/react',
+      [
+        '@babel/react',
+        {
+          runtime: 'automatic',
+        },
+      ],
     ],
     plugins: [
       '@babel/plugin-proposal-class-properties',

@@ -32,6 +32,10 @@ module.exports = {
     'sort-imports': 'off',
     'import/order': 'off',
 
+    // https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-uses-react': 'off',
+
     // we use typescript; ain't need no prop-types
     'react/prop-types': 'off',
     'react/require-default-props': 'off',
@@ -116,6 +120,7 @@ module.exports = {
     'package.json',
     '__generated__',
     '.eslintrc.js',
+    '.next',
   ],
   overrides: [
     {
