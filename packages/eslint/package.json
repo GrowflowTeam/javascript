@@ -5,7 +5,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.9.1",
+  "version": "5.9.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/GrowflowTeam/javascript.git"
@@ -24,6 +24,7 @@
   },
   "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.11.0",
+    "@typescript-eslint/parser": "^4.14.0",
     "eslint": "^7.16.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.22.1",
