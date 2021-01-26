@@ -21,6 +21,25 @@ module.exports = {
 };
 ```
 
+This will apply the core eslint config settings as well as settings to eslint your tests with Jest. If you are not using Jest or only want to include the core settings for whatever reason, you can extend the core config:
+
+```js
+module.exports = {
+  extends: ['@growflow/eslint-config/core'],
+  parserOptions: {
+    project: 'tsconfig.json', // if using typescript
+  },
+};
+```
+
+Or if you only want to include the Jest configuration with in an `.eslintrc.js` within a `test` folder, you can do that as well:
+
+```js
+module.exports = {
+  extends: ['@growflow/eslint-config/jest']
+};
+```
+
 ### Editor Integration
 
 You should be able to use your favorite editor's (\*cough\* [VS Code](https://code.visualstudio.com/)) [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) to easily format your code on save or with the [_Format_ command](https://code.visualstudio.com/docs/editor/codebasics#_formatting).
