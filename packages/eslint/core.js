@@ -117,6 +117,8 @@ module.exports = {
     'dist',
     'package.json',
     '__generated__',
+    '_generated.ts',
+    '_generated.js',
     '.eslintrc.js',
     '.next',
   ],
