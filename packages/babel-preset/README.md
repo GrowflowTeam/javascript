@@ -16,9 +16,25 @@ You can then create a `babel.config.json` file in the root of your project:
 }
 ```
 
-### Compiling Libraries
+The preset will compile for both the web and for node. It will **compile for the web by default** (specifically for use in webpack). It will leave `import`s and `export`s intact so that webpack can [tree shake](https://webpack.js.org/guides/tree-shaking/).
 
-If you are building a library package to be used in other apps, you can make use of the preset's environment configuration.
+To compile for node v12, you will need to set the `BABEL_ENV` or `NODE_ENV` environment variable  to `node` or `test` when compiling. If you are using Jest, it will automatically set the `NODE_ENV` variable to `test` for you.
+
+### Running an App
+
+If you want to run your app or server via babel, you can make use of [`@babel/node`](https://babeljs.io/docs/en/babel-node).
+
+```
+npx install-peerdeps @babel/node --dev
+```
+
+Assuming the entry point of your app lives at `src/index.ts`:
+
+```
+BABEL_ENV=node babel-node --extensions ".ts,.tsx,.js,.jsx" src/index.ts
+```
+
+### Compiling Libraries
 
 Here is a sample `package.json` that will compile a TypeScript project with source files in the `src` folder into three "distribution" folders:
 
