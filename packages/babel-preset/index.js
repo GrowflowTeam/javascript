@@ -1,3 +1,5 @@
+const getPathsPlugin = require('./tsconfig-paths');
+
 const MIN_NODE_VERSION = '12';
 
 const nodeConfig = {
@@ -21,6 +23,27 @@ const nodeConfig = {
   ],
 };
 
+const plugins = [
+  '@babel/plugin-proposal-class-properties',
+  'macros',
+  'inline-react-svg',
+  ['import', { libraryName: 'antd' }, 'antd'],
+  [
+    'import',
+    {
+      libraryName: 'lodash',
+      libraryDirectory: '',
+      camel2DashComponentName: false,
+    },
+    'lodash',
+  ],
+];
+
+const pathsPlugin = getPathsPlugin();
+if (pathsPlugin) {
+  plugins.push(pathsPlugin);
+}
+
 module.exports = (api) => {
   api.assertVersion(7);
 
@@ -38,20 +61,7 @@ module.exports = (api) => {
         },
       ],
     ],
-    plugins: [
-      '@babel/plugin-proposal-class-properties',
-      'inline-react-svg',
-      ['import', { libraryName: 'antd' }, 'antd'],
-      [
-        'import',
-        {
-          libraryName: 'lodash',
-          libraryDirectory: '',
-          camel2DashComponentName: false,
-        },
-        'lodash',
-      ],
-    ],
+    plugins,
     env: {
       node: nodeConfig,
       test: nodeConfig,

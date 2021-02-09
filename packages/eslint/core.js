@@ -26,6 +26,13 @@ module.exports = {
     node: true,
     browser: true,
   },
+  settings: {
+    'import/resolver': {
+      'babel-module': {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+  },
   rules: {
     // sort imports
     'simple-import-sort/imports': 'error',
