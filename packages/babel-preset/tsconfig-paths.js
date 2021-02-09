@@ -12,11 +12,13 @@ module.exports = function getPlugin() {
 
   const alias = {};
 
-  for (const k of Object.keys(paths)) {
-    alias[k] = `./${path.relative(
-      process.cwd(),
-      path.resolve(baseUrl, paths[k][0])
-    )}`;
+  if (paths) {
+    for (const k of Object.keys(paths)) {
+      alias[k] = `./${path.relative(
+        process.cwd(),
+        path.resolve(baseUrl, paths[k][0])
+      )}`;
+    }
   }
 
   return [
