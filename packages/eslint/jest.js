@@ -1,6 +1,9 @@
 module.exports = {
   plugins: ['jest'],
   extends: ['plugin:jest/recommended', 'plugin:jest/style'],
+  env: {
+    jest: true,
+  },
   rules: {
     'jest/consistent-test-it': 'error',
     'jest/lowercase-name': 'error',
