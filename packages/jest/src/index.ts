@@ -3,6 +3,7 @@ import deepmerge from 'deepmerge';
 import path from 'path';
 
 const baseConfig: Config.InitialOptions = {
+  testEnvironment: 'node',
   transform: {
     '^.+\\.[jt]sx?$': ['babel-jest', { rootMode: 'upward' }],
   },
