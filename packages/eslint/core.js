@@ -120,6 +120,7 @@ module.exports = {
     ],
 
     // override base configuration allowing single/double underscores in some contexts (e.g. export const __test__)
+    'no-underscore-dangle': 'off',
     '@typescript-eslint/naming-convention': [
       'error',
       // Allow camelCase variables (23.2), PascalCase variables (23.8), and UPPER_CASE variables (23.10)
