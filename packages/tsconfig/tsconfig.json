@@ -10,6 +10,8 @@
     "esModuleInterop": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
+
+    "strict": true,
     "noImplicitAny": true
   }
 }
