@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 const optionalRequire = require('optional-require')(require);
 const get = require('lodash/get');
@@ -10,7 +11,13 @@ module.exports = function getPlugin() {
 
   if (!baseUrl && !paths) return;
 
+  const filePaths = fs.readdirSync(path.join(process.cwd(), baseUrl));
+
   const alias = {};
+
+  for (const p of filePaths) {
+    alias[p] = `./${path.relative(process.cwd(), path.resolve(baseUrl, p))}`;
+  }
 
   if (paths) {
     for (const k of Object.keys(paths)) {
