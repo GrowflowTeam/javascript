@@ -27,8 +27,8 @@ exports.testFiles = [
 
 exports.devDepFiles = [
   ...exports.testFiles,
-  '**/cypress/*.ts',
-  '**/cypress/*.tsx',
+  '**/cypress/**/*.ts',
+  '**/cypress/**/*.tsx',
   '**/cypress/*.js',
   '**/cypress/*.jsx',
   '**/craco.config.js',
