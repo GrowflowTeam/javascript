@@ -27,7 +27,7 @@ const plugins = [
   '@babel/plugin-proposal-class-properties',
   'macros',
   'inline-react-svg',
-  ['import', { libraryName: 'antd' }, 'antd'],
+  ['import', { libraryName: 'antd', style: true }, 'antd'],
   [
     'import',
     {
