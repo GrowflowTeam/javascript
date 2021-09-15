@@ -4,4 +4,7 @@ module.exports = {
     project: 'tsconfig.json',
   },
   root: true,
+  rules: {
+    'unicorn/prefer-module': 'off',
+  },
 };

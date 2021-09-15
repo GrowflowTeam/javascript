@@ -10,6 +10,7 @@ module.exports = {
     'monorepo',
   ],
   extends: [
+    'airbnb',
     'airbnb-typescript',
     'airbnb/hooks',
     'plugin:eslint-comments/recommended',
@@ -19,8 +20,6 @@ module.exports = {
     'plugin:unicorn/recommended',
     'plugin:monorepo/recommended',
     'plugin:prettier/recommended',
-    'prettier/react',
-    'prettier/@typescript-eslint',
   ],
   env: {
     node: true,

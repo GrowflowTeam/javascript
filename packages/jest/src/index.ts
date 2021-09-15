@@ -1,6 +1,6 @@
 import type { Config } from '@jest/types';
 import deepmerge from 'deepmerge';
-import path from 'path';
+import path from 'node:path';
 
 const baseConfig: Config.InitialOptions = {
   testEnvironment: 'node',
@@ -23,10 +23,8 @@ const baseConfig: Config.InitialOptions = {
   ],
   moduleNameMapper: {
     '\\.svg$': path.join(__dirname, 'mocks/svg.js'),
-    '\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': path.join(
-      __dirname,
-      'mocks/file.js'
-    ),
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+      path.join(__dirname, 'mocks/file.js'),
     '\\.(css|less)$': 'identity-obj-proxy',
   },
   setupFiles: ['dotenv/config', '@growflow/jest/lib/fetch'],
