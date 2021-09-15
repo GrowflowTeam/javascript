@@ -11,8 +11,8 @@
   "devDependencies": {
     "@babel/cli": "^7.15.4",
     "@babel/core": "^7.15.5",
-    "@growflow/babel-preset": "^6.0.0",
-    "@growflow/eslint-config": "^6.0.0",
+    "@growflow/babel-preset": "^7.0.0",
+    "@growflow/eslint-config": "^7.0.0",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
     "eslint": "^7.32.0",
