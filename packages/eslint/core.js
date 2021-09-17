@@ -99,6 +99,8 @@ module.exports = {
     'unicorn/number-literal-case': 'off',
     'unicorn/empty-brace-spaces': 'off',
     'unicorn/prefer-module': 'off',
+    'unicorn/no-null': 'off',
+    'unicorn/prefer-node-protocol': 'off',
 
     // we use async/await instead of promise chains and don't want to be forced to return in a then()
     'promise/always-return': 'off',
@@ -154,13 +156,6 @@ module.exports = {
     '.next',
   ],
   overrides: [
-    {
-      files: ['*.jsx', '*.tsx'],
-      rules: {
-        // allow returning null from React components
-        'unicorn/no-null': 'off',
-      },
-    },
     {
       files: ['*.js', '*.jsx'],
       rules: {

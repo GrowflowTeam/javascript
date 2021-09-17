@@ -1,6 +1,6 @@
 import type { Config } from '@jest/types';
 import deepmerge from 'deepmerge';
-import path from 'node:path';
+import path from 'path';
 
 const baseConfig: Config.InitialOptions = {
   testEnvironment: 'node',
