@@ -101,6 +101,7 @@ module.exports = {
     'unicorn/prefer-module': 'off',
     'unicorn/no-null': 'off',
     'unicorn/prefer-node-protocol': 'off',
+    'unicorn/no-array-callback-reference': 'off',
 
     // we use async/await instead of promise chains and don't want to be forced to return in a then()
     'promise/always-return': 'off',
