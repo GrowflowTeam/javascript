@@ -3,10 +3,8 @@ import deepmerge from 'deepmerge';
 import path from 'path';
 
 const baseConfig: Config.InitialOptions = {
+  preset: 'ts-jest',
   testEnvironment: 'node',
-  transform: {
-    '^.+\\.[jt]sx?$': ['babel-jest', { rootMode: 'upward' }],
-  },
   testMatch: [
     '**/__tests__/**/*.[jt]s?(x)',
     '**/?(*.)+(spec|test).[jt]s?(x)',
