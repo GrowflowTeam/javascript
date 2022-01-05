@@ -1,4 +1,8 @@
 {
   "extends": "@tsconfig/recommended/tsconfig.json",
-  "include": ["packages"]
+  "include": ["packages"],
+  "compilerOptions": {
+    "allowJs": true,
+    "noEmit": true
+  }
 }
