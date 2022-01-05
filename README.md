@@ -6,14 +6,10 @@
 
 Checkout the instructions for each individual package:
 
-* [Babel Preset](./packages/babel-preset/README.md)
 * [Browserslist config](./packages/browserslist/README.md)
 * [ESLint config](./packages/eslint/README.md)
 * [Prettier config](./packages/prettier/README.md)
-* [TypeScript config](./packages/tsconfig/README.md)
 * [Jest config](./packages/jest/README.md)
-
-> Protip: to bootstrap a new project with all of this already configured, make use of [GrowFlow's CRA Template](https://github.com/GrowflowTeam/create-react-app).
 
 ## Developing
 

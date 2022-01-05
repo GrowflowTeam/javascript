@@ -3,34 +3,33 @@
   "private": true,
   "version": "0.0.0",
   "license": "MIT",
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "lint": "tsc && eslint --ext .js,.ts packages",
     "release": "lerna publish"
   },
   "devDependencies": {
-    "@babel/cli": "^7.15.4",
-    "@babel/core": "^7.15.5",
-    "@growflow/babel-preset": "^7.0.0",
-    "@growflow/eslint-config": "^7.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.31.1",
-    "@typescript-eslint/parser": "^4.31.1",
-    "eslint": "^7.32.0",
-    "eslint-import-resolver-babel-module": "^5.3.1",
+    "@growflow/eslint-config": "^7.2.0",
+    "@tsconfig/recommended": "^1.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "eslint": "^8.6.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-jest": "^24.4.0",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^25.3.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-monorepo": "^0.3.2",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-promise": "^5.1.0",
-    "eslint-plugin-react": "^7.25.1",
-    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
-    "eslint-plugin-unicorn": "^36.0.0",
+    "eslint-plugin-unicorn": "^40.0.0",
     "lerna": "^4.0.0",
-    "prettier": "^2.4.0",
-    "typescript": "4.4.3"
+    "prettier": "^2.5.1",
+    "typescript": "4.5.4"
   }
 }
