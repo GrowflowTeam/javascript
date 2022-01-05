@@ -39,7 +39,7 @@ export default createUiJestConfig({
 
 ### TS Auto Mock
 
-The base configuration can automatically configure [TS Auto Mock](https://typescript-tdd.github.io/ts-auto-mock/). In order for this to work, it has to switch the compilation of the tests from babel to [TTypeScript](https://github.com/cevek/ttypescript). This could cause problems for your app if the logic you are testing relies on a specific babel transformation that TypeScript doesn't support.
+The base configuration can automatically configure [TS Auto Mock](https://typescript-tdd.github.io/ts-auto-mock/). In order for this to work, it has to switch the compilation of the tests to [TTypeScript](https://github.com/cevek/ttypescript) (notice the extra _T_).
 
 For this reason, TS Auto Mock support is opt-in:
 

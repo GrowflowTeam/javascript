@@ -2,7 +2,6 @@
   "name": "@growflow/jest",
   "description": "Shareable Jest configuration to get testing up and running quickly for GrowFlow frontend and backend applications",
   "main": "lib/index.js",
-  "types": "dist/index.d.ts",
   "publishConfig": {
     "access": "public"
   },
@@ -24,7 +23,7 @@
     "growflow"
   ],
   "scripts": {
-    "build": "rimraf lib dist && tsc -p tsconfig.output.json && cross-env BABEL_ENV=node babel src -d lib --root-mode upward --extensions \".ts,.js\" --source-maps",
+    "build": "rimraf lib && tsc -p tsconfig.output.json",
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
