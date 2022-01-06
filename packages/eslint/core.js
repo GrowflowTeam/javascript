@@ -63,12 +63,6 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
 
-    // these are prohibitively strict when migrating a codebase to TS
-    // make them warnings instead
-    '@typescript-eslint/no-unsafe-assignment': 'warn',
-    '@typescript-eslint/no-unsafe-member-access': 'warn',
-    '@typescript-eslint/no-unsafe-call': 'warn',
-
     // this is redundant when using typescript types
     'consistent-return': 'off',
 
