@@ -11,7 +11,7 @@
     "release": "lerna publish"
   },
   "devDependencies": {
-    "@growflow/eslint-config": "8.0.0-beta.3",
+    "@growflow/eslint-config": "8.0.0-beta.4",
     "@tsconfig/recommended": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^5.9.0",
     "@typescript-eslint/parser": "^5.9.0",
