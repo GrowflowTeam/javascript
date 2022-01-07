@@ -1,9 +1,11 @@
-import type { Config } from '@jest/types';
 import deepmerge from 'deepmerge';
 import path from 'path';
+import type { InitialOptionsTsJest } from 'ts-jest';
+import { jsWithTsESM as tsjPreset } from 'ts-jest/presets';
 
-const baseConfig: Config.InitialOptions = {
-  preset: 'ts-jest',
+const baseConfig: InitialOptionsTsJest = {
+  transform: tsjPreset.transform,
+
   testEnvironment: 'node',
   testMatch: [
     '**/__tests__/**/*.[jt]s?(x)',
@@ -30,7 +32,7 @@ const baseConfig: Config.InitialOptions = {
 
 const { transform, ...baseConfigWithoutTransform } = baseConfig;
 
-const tsAutoMockConfig = deepmerge<Config.InitialOptions>(
+const tsAutoMockConfig = deepmerge<InitialOptionsTsJest>(
   baseConfigWithoutTransform,
   {
     globals: {
@@ -46,21 +48,21 @@ const tsAutoMockConfig = deepmerge<Config.InitialOptions>(
   }
 );
 
-type OptsType = Partial<Config.InitialOptions> & {
+type OptsType = Partial<InitialOptionsTsJest> & {
   includeTsAutoMock?: boolean;
 };
 
 export function createJestConfig({
   includeTsAutoMock,
   ...cfg
-}: OptsType = {}): Config.InitialOptions {
+}: OptsType = {}): InitialOptionsTsJest {
   return includeTsAutoMock
     ? deepmerge(tsAutoMockConfig, cfg)
     : deepmerge(baseConfig, cfg);
 }
 
-export function createUiJestConfig(cfg?: OptsType): Config.InitialOptions {
-  return deepmerge<Config.InitialOptions>(createJestConfig(cfg), {
+export function createUiJestConfig(cfg?: OptsType): InitialOptionsTsJest {
+  return deepmerge<InitialOptionsTsJest>(createJestConfig(cfg), {
     testEnvironment: 'jsdom-sixteen',
     setupFilesAfterEnv: ['@growflow/jest/lib/jsdom-env'],
   });
