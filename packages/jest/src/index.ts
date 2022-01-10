@@ -36,7 +36,7 @@ const baseConfig: ConfigBuilder = async (tsConfigPath) => {
         path.join(__dirname, 'mocks/file.js'),
       '\\.(css|less)$': 'identity-obj-proxy',
     },
-    setupFiles: ['dotenv/config', '@growflow/jest/lib/fetch'],
+    setupFiles: ['dotenv/config'],
   };
 };
 
@@ -70,6 +70,9 @@ export async function createUiJestConfig(
 ): Promise<InitialOptionsTsJest> {
   return deepmerge<InitialOptionsTsJest>(await createJestConfig(cfg), {
     testEnvironment: 'jsdom-sixteen',
-    setupFilesAfterEnv: ['@growflow/jest/lib/jsdom-env'],
+    setupFilesAfterEnv: [
+      '@growflow/jest/lib/jsdom-env',
+      '@growflow/jest/lib/fetch',
+    ],
   });
 }
