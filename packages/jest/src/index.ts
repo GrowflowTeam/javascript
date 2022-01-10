@@ -69,7 +69,7 @@ export async function createUiJestConfig(
   cfg?: Opts
 ): Promise<InitialOptionsTsJest> {
   return deepmerge<InitialOptionsTsJest>(await createJestConfig(cfg), {
-    testEnvironment: 'jsdom-sixteen',
+    testEnvironment: 'jsdom',
     setupFilesAfterEnv: [
       '@growflow/jest/lib/jsdom-env',
       '@growflow/jest/lib/fetch',
