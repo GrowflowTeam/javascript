@@ -2,17 +2,19 @@ import path from 'path';
 import { pathsToModuleNameMapper } from 'ts-jest';
 import type { MapLike } from 'typescript';
 
+interface TsConfig {
+  compilerOptions?: {
+    baseUrl?: string;
+    paths?: MapLike<string[]>;
+  };
+}
+
 export default async function coerceTsConfigPaths(
   tsConfigPath: string | null | undefined
 ) {
   if (!tsConfigPath) return {};
 
-  const cfg = (await import(tsConfigPath)) as {
-    compilerOptions?: {
-      baseUrl?: string;
-      paths?: MapLike<string[]>;
-    };
-  };
+  const cfg = (await import(tsConfigPath)) as TsConfig;
 
   const tsConfigPaths = cfg?.compilerOptions?.paths;
   if (!tsConfigPaths) return {};
