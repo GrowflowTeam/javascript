@@ -1,22 +1,13 @@
 import deepmerge from 'deepmerge';
 import path from 'path';
-import { InitialOptionsTsJest, pathsToModuleNameMapper } from 'ts-jest';
+import type { InitialOptionsTsJest } from 'ts-jest';
 import { jsWithTsESM as tsjPreset } from 'ts-jest/presets';
-import type { MapLike } from 'typescript';
+
+import coerceTsConfigPaths from './paths';
 
 type ConfigBuilder = (tsConfigPath: string) => Promise<InitialOptionsTsJest>;
 
 const baseConfig: ConfigBuilder = async (tsConfigPath) => {
-  const cfg = (await import(tsConfigPath)) as {
-    compilerOptions?: {
-      baseUrl?: string;
-      paths?: MapLike<string[]>;
-    };
-  };
-
-  const tsConfigPaths = cfg?.compilerOptions?.paths;
-  const tsConfigBaseUrl = cfg?.compilerOptions?.baseUrl;
-
   return {
     transform: tsjPreset.transform,
 
@@ -36,12 +27,7 @@ const baseConfig: ConfigBuilder = async (tsConfigPath) => {
       'fixture\\.[jt]sx?$',
     ],
     moduleNameMapper: {
-      ...(tsConfigPaths
-        ? pathsToModuleNameMapper(
-            tsConfigPaths,
-            tsConfigBaseUrl ? { prefix: tsConfigBaseUrl } : undefined
-          )
-        : {}),
+      ...(await coerceTsConfigPaths(tsConfigPath)),
 
       '\\.svg$': path.join(__dirname, 'mocks/svg.js'),
       '\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
