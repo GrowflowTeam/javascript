@@ -7,9 +7,13 @@ import type { MapLike } from 'typescript';
 type ConfigBuilder = (tsConfigPath: string) => Promise<InitialOptionsTsJest>;
 
 const baseConfig: ConfigBuilder = async (tsConfigPath) => {
-  const { paths: tsConfigPaths } = (await import(tsConfigPath)) as {
-    paths: MapLike<string[]>;
+  const cfg = (await import(tsConfigPath)) as {
+    compilerOptions?: {
+      paths?: MapLike<string[]>;
+    };
   };
+
+  const tsConfigPaths = cfg?.compilerOptions?.paths;
 
   return {
     transform: tsjPreset.transform,
@@ -30,7 +34,7 @@ const baseConfig: ConfigBuilder = async (tsConfigPath) => {
       'fixture\\.[jt]sx?$',
     ],
     moduleNameMapper: {
-      ...pathsToModuleNameMapper(tsConfigPaths),
+      ...(tsConfigPaths ? pathsToModuleNameMapper(tsConfigPaths) : {}),
 
       '\\.svg$': path.join(__dirname, 'mocks/svg.js'),
       '\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
