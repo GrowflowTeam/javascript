@@ -26,5 +26,5 @@ export default async function coerceTsConfigPaths(
     }
   }
 
-  return pathsToModuleNameMapper(tsConfigPaths);
+  return pathsToModuleNameMapper(tsConfigPaths, { prefix: '<rootDir>/' });
 }
