@@ -5,7 +5,9 @@ import { jsWithTsESM as tsjPreset } from 'ts-jest/presets';
 
 import coerceTsConfigPaths from './paths';
 
-type ConfigBuilder = (tsConfigPath: string) => Promise<InitialOptionsTsJest>;
+type ConfigBuilder = (
+  tsConfigPath: string | null | undefined
+) => Promise<InitialOptionsTsJest>;
 
 const baseConfig: ConfigBuilder = async (tsConfigPath) => {
   return {
@@ -49,7 +51,7 @@ const tsAutoMockConfig: ConfigBuilder = async (tsConfigPath) =>
   });
 
 type Opts = Partial<InitialOptionsTsJest> & {
-  tsConfigPath: string;
+  tsConfigPath?: string;
   includeTsAutoMock?: boolean;
 };
 
