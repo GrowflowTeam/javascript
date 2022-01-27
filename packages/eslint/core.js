@@ -26,9 +26,12 @@ module.exports = {
     browser: true,
   },
   settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.js', '.jsx', '.ts', '.tsx'],
+    },
     'import/resolver': {
-      'babel-module': {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      typescript: {
+        alwaysTryTypes: true,
       },
     },
   },
@@ -81,8 +84,7 @@ module.exports = {
 
     // https://stackoverflow.com/a/63833015/316108
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars-experimental': 'error',
+    '@typescript-eslint/no-unused-vars': 'error',
 
     // it's fine, just relax
     'no-param-reassign': 'off',

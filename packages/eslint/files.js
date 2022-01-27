@@ -40,5 +40,7 @@ exports.devDepFiles = [
   '**/jest.config.js',
   'webpack.config.js',
   'webpack.config.ts',
+  'webpack.config.production.js',
+  'webpack.config.production.ts',
   'next.config.js',
 ];

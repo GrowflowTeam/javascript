@@ -12,5 +12,4 @@ yarn-error.log*
 # Output of 'npm pack'
 *.tgz
 
-yarn.lock
 package-lock.json

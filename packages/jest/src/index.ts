@@ -1,68 +1,75 @@
-import type { Config } from '@jest/types';
 import deepmerge from 'deepmerge';
 import path from 'path';
+import { InitialOptionsTsJest, pathsToModuleNameMapper } from 'ts-jest';
+import { jsWithTsESM as tsjPreset } from 'ts-jest/presets';
+import type { MapLike } from 'typescript';
 
-const baseConfig: Config.InitialOptions = {
-  testEnvironment: 'node',
-  transform: {
-    '^.+\\.[jt]sx?$': ['babel-jest', { rootMode: 'upward' }],
-  },
-  testMatch: [
-    '**/__tests__/**/*.[jt]s?(x)',
-    '**/?(*.)+(spec|test).[jt]s?(x)',
-    '**/test/**/*.[jt]s?(x)',
-  ],
-  testPathIgnorePatterns: [
-    '/node_modules/',
-    '/mocks/',
-    '/fixtures/',
-    '/setup/',
-    'utils\\.[jt]sx?$',
-    'setup\\.[jt]sx?$',
-    'fixture\\.[jt]sx?$',
-  ],
-  moduleNameMapper: {
-    '\\.svg$': path.join(__dirname, 'mocks/svg.js'),
-    '\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      path.join(__dirname, 'mocks/file.js'),
-    '\\.(css|less)$': 'identity-obj-proxy',
-  },
-  setupFiles: ['dotenv/config', '@growflow/jest/lib/fetch'],
+type ConfigBuilder = (tsConfigPath: string) => Promise<InitialOptionsTsJest>;
+
+const baseConfig: ConfigBuilder = async (tsConfigPath) => {
+  const { paths: tsConfigPaths } = (await import(tsConfigPath)) as {
+    paths: MapLike<string[]>;
+  };
+
+  return {
+    transform: tsjPreset.transform,
+
+    testEnvironment: 'node',
+    testMatch: [
+      '**/__tests__/**/*.[jt]s?(x)',
+      '**/?(*.)+(spec|test).[jt]s?(x)',
+      '**/test/**/*.[jt]s?(x)',
+    ],
+    testPathIgnorePatterns: [
+      '/node_modules/',
+      '/mocks/',
+      '/fixtures/',
+      '/setup/',
+      'utils\\.[jt]sx?$',
+      'setup\\.[jt]sx?$',
+      'fixture\\.[jt]sx?$',
+    ],
+    moduleNameMapper: {
+      ...pathsToModuleNameMapper(tsConfigPaths),
+
+      '\\.svg$': path.join(__dirname, 'mocks/svg.js'),
+      '\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+        path.join(__dirname, 'mocks/file.js'),
+      '\\.(css|less)$': 'identity-obj-proxy',
+    },
+    setupFiles: ['dotenv/config', '@growflow/jest/lib/fetch'],
+  };
 };
 
-const { transform, ...baseConfigWithoutTransform } = baseConfig;
-
-const tsAutoMockConfig = deepmerge<Config.InitialOptions>(
-  baseConfigWithoutTransform,
-  {
+const tsAutoMockConfig: ConfigBuilder = async (tsConfigPath) =>
+  deepmerge<InitialOptionsTsJest>(await baseConfig(tsConfigPath), {
     globals: {
       'ts-jest': {
         compiler: 'ttypescript',
       },
     },
-    transform: {
-      '\\.tsx?$': 'ts-jest',
-      '\\.jsx?$': ['babel-jest', { rootMode: 'upward' }],
-    },
     setupFiles: ['jest-ts-auto-mock'],
-  }
-);
+  });
 
-type OptsType = Partial<Config.InitialOptions> & {
+type Opts = Partial<InitialOptionsTsJest> & {
+  tsConfigPath: string;
   includeTsAutoMock?: boolean;
 };
 
-export function createJestConfig({
-  includeTsAutoMock,
-  ...cfg
-}: OptsType = {}): Config.InitialOptions {
+export async function createJestConfig(
+  { includeTsAutoMock, tsConfigPath, ...cfg }: Opts = {
+    tsConfigPath: './tsconfig.json',
+  }
+): Promise<InitialOptionsTsJest> {
   return includeTsAutoMock
-    ? deepmerge(tsAutoMockConfig, cfg)
-    : deepmerge(baseConfig, cfg);
+    ? deepmerge(await tsAutoMockConfig(tsConfigPath), cfg)
+    : deepmerge(await baseConfig(tsConfigPath), cfg);
 }
 
-export function createUiJestConfig(cfg?: OptsType): Config.InitialOptions {
-  return deepmerge<Config.InitialOptions>(createJestConfig(cfg), {
+export async function createUiJestConfig(
+  cfg?: Opts
+): Promise<InitialOptionsTsJest> {
+  return deepmerge<InitialOptionsTsJest>(await createJestConfig(cfg), {
     testEnvironment: 'jsdom-sixteen',
     setupFilesAfterEnv: ['@growflow/jest/lib/jsdom-env'],
   });
