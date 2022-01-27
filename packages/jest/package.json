@@ -5,7 +5,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "8.0.0",
+  "version": "9.0.0-beta.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/GrowflowTeam/javascript.git"
@@ -32,7 +32,6 @@
     "deepmerge": "^4.2.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.4.7",
-    "jest-environment-jsdom-sixteen": "^1.0.3",
     "jest-ts-auto-mock": "^2.0.0",
     "node-fetch": "^2.6.6",
     "ts-jest": "^27.1.2",

@@ -49,6 +49,16 @@ module.exports = {
     'react/prop-types': 'off',
     'react/require-default-props': 'off',
 
+    // personal preference
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md
+    'react/function-component-definition': [
+      'error',
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
+
     // who doesn't love a good nested ternary?
     'no-nested-ternary': 'off',
     'unicorn/no-nested-ternary': 'off',
@@ -66,7 +76,9 @@ module.exports = {
     // these are prohibitively strict when migrating a codebase to TS
     // make them warnings instead
     '@typescript-eslint/no-unsafe-assignment': 'warn',
+    '@typescript-eslint/no-unsafe-argument': 'warn',
     '@typescript-eslint/no-unsafe-member-access': 'warn',
+    '@typescript-eslint/no-unsafe-return': 'warn',
     '@typescript-eslint/no-unsafe-call': 'warn',
 
     // this is redundant when using typescript types
