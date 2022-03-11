@@ -3,7 +3,7 @@ import path from 'path';
 import type { InitialOptionsTsJest } from 'ts-jest';
 import { jsWithTsESM as tsjPreset } from 'ts-jest/presets';
 
-import coerceTsConfigPaths from './paths';
+import { coerceTsConfigPaths, mapTsBaseUrl } from './paths';
 
 type ConfigBuilder = (
   tsConfigPath: string | null | undefined
@@ -36,6 +36,7 @@ const baseConfig: ConfigBuilder = async (tsConfigPath) => {
         path.join(__dirname, 'mocks/file.js'),
       '\\.(css|less)$': 'identity-obj-proxy',
     },
+    moduleDirectories: await mapTsBaseUrl(tsConfigPath),
     setupFiles: ['dotenv/config'],
   };
 };

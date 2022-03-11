@@ -9,12 +9,16 @@ interface TsConfig {
   };
 }
 
-export default async function coerceTsConfigPaths(
+async function loadTsConfig(tsConfigPath: string | null | undefined) {
+  if (!tsConfigPath) return {};
+  const cfg = (await import(tsConfigPath)) as TsConfig;
+  return cfg;
+}
+
+export async function coerceTsConfigPaths(
   tsConfigPath: string | null | undefined
 ) {
-  if (!tsConfigPath) return {};
-
-  const cfg = (await import(tsConfigPath)) as TsConfig;
+  const cfg = await loadTsConfig(tsConfigPath);
 
   const tsConfigPaths = cfg?.compilerOptions?.paths;
   if (!tsConfigPaths) return {};
@@ -29,4 +33,14 @@ export default async function coerceTsConfigPaths(
   }
 
   return pathsToModuleNameMapper(tsConfigPaths, { prefix: '<rootDir>/' });
+}
+
+export async function mapTsBaseUrl(tsConfigPath: string | null | undefined) {
+  const cfg = await loadTsConfig(tsConfigPath);
+
+  if (!cfg.compilerOptions?.baseUrl) {
+    return ['node_modules'];
+  }
+
+  return ['node_modules', cfg.compilerOptions.baseUrl];
 }
