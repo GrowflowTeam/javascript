@@ -8,11 +8,11 @@
     "lint": "tsc && eslint --ext .js,.ts packages"
   },
   "devDependencies": {
-    "@growflow/eslint-config": "10.0.0",
-    "@rushstack/eslint-patch": "^1.1.0",
+    "@growflow/eslint-config": "^10.1.0",
+    "@rushstack/eslint-patch": "^1.1.1",
     "@tsconfig/recommended": "^1.0.1",
-    "eslint": "^8.10.0",
-    "prettier": "^2.5.1",
-    "typescript": "^4.6.2"
+    "eslint": "^8.11.0",
+    "prettier": "^2.6.1",
+    "typescript": "^4.6.3"
   }
 }

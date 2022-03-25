@@ -116,8 +116,21 @@ module.exports = {
     'unicorn/prefer-node-protocol': 'off',
     'unicorn/no-array-callback-reference': 'off',
 
+    'unicorn/no-array-reduce': 'warn',
+    'unicorn/no-array-for-each': 'warn',
+
     // we use async/await instead of promise chains and don't want to be forced to return in a then()
     'promise/always-return': 'off',
+
+    // We often pass functions that return promises to props on
+    // react components that expect void. It's fine. Don't error
+    // on that particular case (checksVoidReturn).
+    '@typescript-eslint/no-misused-promises': [
+      'error',
+      {
+        checksVoidReturn: false,
+      },
+    ],
 
     // https://github.com/typescript-eslint/typescript-eslint/blob/v4.3.0/packages/eslint-plugin/docs/rules/no-floating-promises.md#ignorevoid
     'no-void': ['error', { allowAsStatement: true }],
@@ -127,7 +140,7 @@ module.exports = {
 
     // don't mess up 'dem arrays
     'react/jsx-key': 'error',
-    'react/no-array-index-key': 'error',
+    'react/no-array-index-key': 'warn',
 
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
 
@@ -135,6 +148,16 @@ module.exports = {
       'error',
       { devDependencies: devDepFiles },
     ],
+
+    // make these "suggestions" rather than errors
+    'react/destructuring-assignment': 'warn',
+    'class-methods-use-this': 'warn',
+
+    // This is less of an issue since we are migrating to
+    // and write new components as functions instead of classes.
+    // We don't want to clutter up legacy files with errors
+    // that we don't intend on fixing.
+    'react/state-in-constructor': 'off',
 
     // override base configuration allowing single/double underscores in some contexts (e.g. export const __test__)
     'no-underscore-dangle': 'off',
@@ -176,12 +199,18 @@ module.exports = {
         // without typescript, this can be bad -- don't do it
         'react/jsx-props-no-spreading': 'error',
 
+        // nothing we can really do about these in a JS file
+        // don't unnecessarily warn/error when there ain't no types
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/no-unsafe-member-access': 'off',
         '@typescript-eslint/no-unsafe-assignment': 'off',
         '@typescript-eslint/no-unsafe-call': 'off',
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/no-unsafe-argument': 'off',
         '@typescript-eslint/no-unsafe-return': 'off',
+
+        // ease up on the JS rules
+        // the JS files are usually the legacy ones in the codebase
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/restrict-template-expressions': 'off',
         '@typescript-eslint/restrict-plus-operands': 'off',
         '@typescript-eslint/no-var-requires': 'off',
