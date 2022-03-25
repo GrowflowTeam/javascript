@@ -11,7 +11,7 @@
     "release": "lerna publish"
   },
   "devDependencies": {
-    "@growflow/eslint-config": "^10.0.0",
+    "@growflow/eslint-config": "^10.1.0",
     "@rushstack/eslint-patch": "^1.1.1",
     "@tsconfig/recommended": "^1.0.1",
     "eslint": "^8.11.0",
