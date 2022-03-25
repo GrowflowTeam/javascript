@@ -19,15 +19,12 @@ Clone this repo and run `yarn` from the repository's root to install dependencie
 
 1. First create a new folder within the `packages` directory.
 2. Copy one of the existing package's `package.json` to your new folder and tweak the values.
+3. Update the package list in `deploy.yml` and the `workspaces` list in the root `package.json`.
 
-## Publishing
+## Deploying to npm
 
-This repository uses [lerna](https://github.com/lerna/lerna) to manage its packages.
+1. Ensure you **update the `version` field** in the `package.json` files of the packages you want to publish.
 
-**Don't manage version numbers within `package.json` by hand.** Instead, after you have made and pushed your changes, run:
+2. [Create a release in GitHub](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release) describing the changes pointing to the commit with your changes (usually the `HEAD` of `main`). Follow semver for the tag which should be named in the format `{package}-v{major}.{minor}.{patch}`. e.g. `eslint-v4.20.0`.
 
-```
-yarn release
-```
-
-which will guide you in bumping the version and confirm what packages are about to be published. It will also auto-create tags. You can then [create a release in GitHub](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release) on the generated tag to create a changelog.
+3. A GitHub action looks for packages with versions that don't match what's published on npm and publishes the changed packages.
