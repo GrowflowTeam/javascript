@@ -21,7 +21,7 @@ Clone this repo and run `yarn` from the repository's root to install dependencie
 2. Copy one of the existing package's `package.json` to your new folder and tweak the values.
 3. Update the package list in `deploy.yml` and the `workspaces` list in the root `package.json`.
 
-## Deploying to npm
+### Deploying to npm
 
 1. Ensure you **update the `version` field** in the `package.json` files of the packages you want to publish.
 
