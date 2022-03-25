@@ -199,6 +199,8 @@ module.exports = {
         // without typescript, this can be bad -- don't do it
         'react/jsx-props-no-spreading': 'error',
 
+        // nothing we can really do about these in a JS file
+        // don't unnecessarily warn/error when there ain't no types
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/no-unsafe-member-access': 'off',
         '@typescript-eslint/no-unsafe-assignment': 'off',
@@ -206,6 +208,8 @@ module.exports = {
         '@typescript-eslint/no-unsafe-argument': 'off',
         '@typescript-eslint/no-unsafe-return': 'off',
 
+        // ease up on the JS rules
+        // the JS files are usually the legacy ones in the codebase
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/restrict-template-expressions': 'off',
         '@typescript-eslint/restrict-plus-operands': 'off',
