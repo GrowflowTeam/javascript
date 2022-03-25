@@ -1,11 +1,11 @@
-name: Deploy to npm
+name: Deploy
 on:
   release:
     types: [created]
 
 jobs:
   check:
-    name: Lint/Type Check
+    name: Lint
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +20,7 @@ jobs:
       - run: yarn lint
 
   deploy:
-    name: Deploy
+    name: npm publish
     runs-on: ubuntu-latest
     needs: check
 

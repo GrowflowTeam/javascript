@@ -1,9 +1,9 @@
-name: ci
+name: CI
 on: push
 
 jobs:
   check:
-    name: Lint/Type Check
+    name: Lint
     runs-on: ubuntu-latest
 
     steps:
