@@ -27,14 +27,14 @@
     "prepublishOnly": "yarn build"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.1",
-    "@types/jest": "^27.4.0",
+    "@testing-library/jest-dom": "^5.16.3",
+    "@types/jest": "^27.4.1",
     "deepmerge": "^4.2.2",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.4.7",
-    "jest-ts-auto-mock": "^2.0.0",
+    "jest": "^27.5.1",
+    "jest-ts-auto-mock": "^2.1.0",
     "node-fetch": "^2.6.6",
-    "ts-jest": "^27.1.2",
+    "ts-jest": "^27.1.4",
     "ttypescript": "^1.5.13"
   },
   "devDependencies": {
