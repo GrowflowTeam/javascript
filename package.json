@@ -3,19 +3,15 @@
   "private": true,
   "version": "0.0.0",
   "license": "MIT",
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "scripts": {
-    "lint": "tsc && eslint --ext .js,.ts packages",
-    "release": "lerna publish"
+    "lint": "tsc && eslint --ext .js,.ts packages"
   },
   "devDependencies": {
     "@growflow/eslint-config": "10.0.0",
     "@rushstack/eslint-patch": "^1.1.0",
     "@tsconfig/recommended": "^1.0.1",
     "eslint": "^8.10.0",
-    "lerna": "^4.0.0",
     "prettier": "^2.5.1",
     "typescript": "^4.6.2"
   }
