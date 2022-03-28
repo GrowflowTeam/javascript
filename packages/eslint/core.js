@@ -60,8 +60,8 @@ module.exports = {
     ],
 
     // who doesn't love a good nested ternary?
-    'no-nested-ternary': 'off',
-    'unicorn/no-nested-ternary': 'off',
+    'no-nested-ternary': 'warn',
+    'unicorn/no-nested-ternary': 'warn',
 
     // I'm not sure what issue this one is trying to prevent. it's fine; use those unescaped entities
     'react/no-unescaped-entities': 'off',
