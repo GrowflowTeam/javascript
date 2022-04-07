@@ -3,13 +3,14 @@ import path from 'path';
 import type { InitialOptionsTsJest } from 'ts-jest';
 import { jsWithTsESM as tsjPreset } from 'ts-jest/presets';
 
-import { coerceTsConfigPaths, mapTsBaseUrl } from './paths';
+import { coerceTsConfigPaths, mapTsBaseUrl as doMapTsBaseUrl } from './paths';
 
 type ConfigBuilder = (
-  tsConfigPath: string | null | undefined
+  tsConfigPath: string | null | undefined,
+  mapTsBaseUrl: boolean
 ) => Promise<InitialOptionsTsJest>;
 
-const baseConfig: ConfigBuilder = async (tsConfigPath) => {
+const baseConfig: ConfigBuilder = async (tsConfigPath, mapTsBaseUrl) => {
   return {
     transform: tsjPreset.transform,
 
@@ -36,34 +37,40 @@ const baseConfig: ConfigBuilder = async (tsConfigPath) => {
         path.join(__dirname, 'mocks/file.js'),
       '\\.(css|less)$': 'identity-obj-proxy',
     },
-    moduleDirectories: await mapTsBaseUrl(tsConfigPath),
+    moduleDirectories: mapTsBaseUrl
+      ? await doMapTsBaseUrl(tsConfigPath)
+      : undefined,
     setupFiles: ['dotenv/config'],
   };
 };
 
-const tsAutoMockConfig: ConfigBuilder = async (tsConfigPath) =>
-  deepmerge<InitialOptionsTsJest>(await baseConfig(tsConfigPath), {
-    globals: {
-      'ts-jest': {
-        compiler: 'ttypescript',
+const tsAutoMockConfig: ConfigBuilder = async (tsConfigPath, mapTsBaseUrl) =>
+  deepmerge<InitialOptionsTsJest>(
+    await baseConfig(tsConfigPath, mapTsBaseUrl),
+    {
+      globals: {
+        'ts-jest': {
+          compiler: 'ttypescript',
+        },
       },
-    },
-    setupFiles: ['jest-ts-auto-mock'],
-  });
+      setupFiles: ['jest-ts-auto-mock'],
+    }
+  );
 
 type Opts = Partial<InitialOptionsTsJest> & {
   tsConfigPath?: string;
   includeTsAutoMock?: boolean;
+  mapTsBaseUrl?: boolean;
 };
 
 export async function createJestConfig(
-  { includeTsAutoMock, tsConfigPath, ...cfg }: Opts = {
+  { includeTsAutoMock, tsConfigPath, mapTsBaseUrl = true, ...cfg }: Opts = {
     tsConfigPath: './tsconfig.json',
   }
 ): Promise<InitialOptionsTsJest> {
   return includeTsAutoMock
-    ? deepmerge(await tsAutoMockConfig(tsConfigPath), cfg)
-    : deepmerge(await baseConfig(tsConfigPath), cfg);
+    ? deepmerge(await tsAutoMockConfig(tsConfigPath, mapTsBaseUrl), cfg)
+    : deepmerge(await baseConfig(tsConfigPath, mapTsBaseUrl), cfg);
 }
 
 export async function createUiJestConfig(
