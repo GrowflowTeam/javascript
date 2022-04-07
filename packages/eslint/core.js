@@ -115,6 +115,7 @@ module.exports = {
     'unicorn/no-null': 'off',
     'unicorn/prefer-node-protocol': 'off',
     'unicorn/no-array-callback-reference': 'off',
+    'unicorn/prefer-json-parse-buffer': 'off',
 
     'unicorn/no-array-reduce': 'warn',
     'unicorn/no-array-for-each': 'warn',
