@@ -12,9 +12,9 @@ module.exports = {
     'jest/prefer-spy-on': 'warn',
     'jest/prefer-todo': 'warn',
 
-    // be more liberal with typescript warnings/errors since we are writing tests anyway...
-    '@typescript-eslint/no-unsafe-assignment': 'off',
-    '@typescript-eslint/no-unsafe-member-access': 'off',
-    '@typescript-eslint/no-unsafe-call': 'off',
+    'jest/expect-expect': [
+      'error',
+      { assertFunctionNames: ['expect*', 'assert*'] },
+    ],
   },
 };
