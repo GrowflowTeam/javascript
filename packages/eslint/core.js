@@ -90,6 +90,16 @@ module.exports = {
     // it's probably fine
     'no-await-in-loop': 'warn',
 
+    // functions are hoisted. why is this not the default?
+    'no-use-before-define': [
+      'error',
+      {
+        functions: false,
+        classes: true,
+        variables: true,
+      },
+    ],
+
     // https://stackoverflow.com/a/63833015/316108
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
