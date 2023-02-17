@@ -5,7 +5,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "10.3.2",
+  "version": "10.4.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/GrowflowTeam/javascript.git"
@@ -35,11 +35,12 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
-    "eslint-plugin-unicorn": "^41.0.1"
+    "eslint-plugin-unicorn": "^41.0.1",
+    "@types/babel__core": "^7.0.0"
   },
   "peerDependencies": {
     "@rushstack/eslint-patch": "^1.1.1",
-    "eslint": "^8.11.0",
+    "eslint": "^8.34.0",
     "prettier": "^2.6.1",
     "typescript": "^4.6.3"
   }

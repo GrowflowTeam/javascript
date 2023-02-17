@@ -97,6 +97,7 @@ module.exports = {
         functions: false,
         classes: true,
         variables: true,
+        allowNamedExports: true,
       },
     ],
 
@@ -104,11 +105,12 @@ module.exports = {
       'error',
       {
         functions: false,
-        classes: true,
+        classes: false,
         variables: true,
         enums: true,
-        typedefs: true,
+        typedefs: false,
         ignoreTypeReferences: true,
+        allowNamedExports: true,
       },
     ],
 
