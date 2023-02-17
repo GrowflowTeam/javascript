@@ -95,7 +95,7 @@ module.exports = {
       'error',
       {
         functions: false,
-        classes: true,
+        classes: false,
         variables: true,
         allowNamedExports: true,
       },
