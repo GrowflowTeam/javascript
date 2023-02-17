@@ -100,6 +100,18 @@ module.exports = {
       },
     ],
 
+    '@typescript-eslint/no-use-before-define': [
+      'error',
+      {
+        functions: false,
+        classes: true,
+        variables: true,
+        enums: true,
+        typedefs: true,
+        ignoreTypeReferences: true,
+      },
+    ],
+
     // https://stackoverflow.com/a/63833015/316108
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
