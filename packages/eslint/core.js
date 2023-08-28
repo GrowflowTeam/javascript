@@ -14,7 +14,6 @@ module.exports = {
     'airbnb-typescript',
     'airbnb/hooks',
     'plugin:eslint-comments/recommended',
-    'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:promise/recommended',
     'plugin:unicorn/recommended',
